@@ -1,10 +1,10 @@
 #include "king.h"     // King
 
-#include "position.h"    // Position
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
 #include "material.h" // Material
+#include "position.h" // Position
 
 King::King(Position initPostion, Color color)
     : Material(initPostion, color, 1000) {}
@@ -13,7 +13,7 @@ King::King(Position initPostion, Color color)
 //TODO: Add piece collision
 std::vector<Position>
 King::CheckAvailableMoves(const std::vector<Material*>& enemy) {
-	std::vector<Position > available;
+	std::vector<Position> available;
 	Position tempPosition;
 	return available;
 }
