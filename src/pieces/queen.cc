@@ -14,7 +14,7 @@ Queen::Queen(std::pair<int, int> initPostion, Color color)
 //TODO: Add piece collision
 std::vector<std::pair<int, int>> 
 Queen::CheckAvailableMoves(const std::vector<Material*>& enemy) {
-	std::vector<std::pair<int,int> > available;
+	std::vector<std::pair<int, int> > available;
 	std::pair<int, int> tempPosition;
 	// first = row / second = column
 	int directions[2] = {-1, 1};
