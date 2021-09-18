@@ -1,9 +1,10 @@
-#include "rook.h"  // Rook
+#include "rook.h"     // Rook
 
-#include <utility> // std::pair
-#include <vector>  // std::vector
+#include <utility>    // std::pair
+#include <vector>     // std::vector
 
-#include "color.h" // Color
+#include "color.h"    // Color
+#include "material.h" // Material
 
 
 Rook::Rook(std::pair<int, int> initPostion, Color color)

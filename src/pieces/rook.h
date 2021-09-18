@@ -4,6 +4,7 @@
 #include <utility>    // std::pair
 #include <vector>     // std::vector
 
+#include "color.h"    // Color
 #include "material.h" // Material
 
 
