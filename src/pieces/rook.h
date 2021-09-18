@@ -13,7 +13,7 @@ class Rook : public Material {
  public:
   Rook(std::pair<int, int> initPostion, Color color);
   std::vector<std::pair<int, int>> 
-  CheckAvailableMoves(std::vector<Material*> enemy) override;
+  CheckAvailableMoves(const std::vector<Material*>& enemy) override;
 };
 
 #endif // CHESS_SRC_PIECES_ROOK_H
