@@ -19,7 +19,7 @@ class Material {
   std::pair<int,int> GetPosition();
   int GetPoints();
  protected:
-  bool InBoard(std::pair<int,int> pos);
+  bool InBoard(Position pos);
   const Color color_;
   Position position_;
   int points_;

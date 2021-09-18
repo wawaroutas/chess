@@ -7,12 +7,12 @@
 #include "position.h"    // Position
 
 
-Pawn::Pawn(std::pair<int,int> initPostion,Color color) 
+Pawn::Pawn(Position initPostion,Color color)
     : Material(initPostion, color, 1) {}
 
 //TODO: Refactor
 //TODO: Add piece collision
-std::vector<Position> 
+std::vector<Position>
 Pawn::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<Position > available;
 	Position tempPosition;

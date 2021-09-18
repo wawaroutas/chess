@@ -21,7 +21,7 @@ Rook::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	for(int dir : directions) {
 		tempPosition = position_;
 		while(InBoard(tempPosition)) {
-			tempPosition.first += dir;
+			tempPosition.x += dir;
 			if(InBoard(tempPosition)) {
 				available.push_back(tempPosition);
       } else {
@@ -30,7 +30,7 @@ Rook::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 		}
 		tempPosition = position_;
 		while(InBoard(tempPosition)) {
-			tempPosition.second += dir;
+			tempPosition.y += dir;
 			if(InBoard(tempPosition)) {
 				available.push_back(tempPosition);
       } else {

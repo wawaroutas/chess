@@ -22,8 +22,8 @@ Bishop::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 		for(int dirC : directions) {
 			tempPosition = position_;
 			while(InBoard(tempPosition)) {
-				tempPosition.first += dirR;
-				tempPosition.second += dirC;
+				tempPosition.x += dirR;
+				tempPosition.y += dirC;
 				if(InBoard(tempPosition))
 					available.push_back(tempPosition);
 				else

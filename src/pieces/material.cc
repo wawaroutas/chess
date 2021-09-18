@@ -23,6 +23,6 @@ bool Material::MoveMaterial(Position newPosition,
 	return false;
 }
 
-bool Material::InBoard(std::pair<int,int> pos) {
-	return pos.first <= 8 && pos.first > 0 && pos.second <= 8 && pos.second > 0;
+bool Material::InBoard(Position pos) {
+	return pos.x <= 8 && pos.x > 0 && pos.y <= 8 && pos.y > 0;
 }
