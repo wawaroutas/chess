@@ -1,5 +1,5 @@
 #include "king.h"     // King
-
+#include "position.h"
 #include <utility>    // std::pair
 #include <vector>     // std::vector
 
@@ -15,5 +15,6 @@ std::vector<std::pair<int, int>>
 King::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<std::pair<int, int> > available;
 	std::pair<int, int> tempPosition;
+
 	return available;
 }
