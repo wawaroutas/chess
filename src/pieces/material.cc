@@ -24,9 +24,5 @@ bool Material::MoveMaterial(Position newPosition,
 }
 
 bool Material::InBoard(Position pos) {
-<<<<<<< HEAD
-	return pos.x <= 8 && pos.x > 0 && pos.y <= 8 && pos.y > 0;
-=======
 	return pos.x <= 8 && pos.y > 0 && pos.y <= 8 && pos.y > 0;
->>>>>>> c9fcb93e96fe449105833a1b19a54adaaa83bb35
 }

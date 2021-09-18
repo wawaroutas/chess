@@ -7,11 +7,7 @@
 #include "position.h"    // Position
 
 
-<<<<<<< HEAD
 Pawn::Pawn(Position initPostion,Color color)
-=======
-Pawn::Pawn(Position initPostion, Color color) 
->>>>>>> c9fcb93e96fe449105833a1b19a54adaaa83bb35
     : Material(initPostion, color, 1) {}
 
 //TODO: Refactor

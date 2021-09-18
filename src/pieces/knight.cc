@@ -33,19 +33,11 @@ Knight::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	}
 	for(int double_step : directions_double) {
 		tempPosition = position_;
-<<<<<<< HEAD
 		tempPosition.x += double_step;
 		Position temp2_position = tempPosition;
 		for(int single : directions_single) {
 			tempPosition = temp2_position;
 			tempPosition.y+=single;
-=======
-		tempPosition.y += double_step;
-		Position temp2_position = tempPosition;
-		for(int single : directions_single) {
-			tempPosition = temp2_position;
-			tempPosition.x+=single;
->>>>>>> c9fcb93e96fe449105833a1b19a54adaaa83bb35
 			if(InBoard(tempPosition))
 				available.push_back(tempPosition);
 			else

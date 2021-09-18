@@ -21,11 +21,7 @@ Queen::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	for(int dir : directions) {
 		tempPosition = position_;
 		while(InBoard(tempPosition)) {
-<<<<<<< HEAD
-			tempPosition.x+=dir;
-=======
 			tempPosition.x += dir;
->>>>>>> c9fcb93e96fe449105833a1b19a54adaaa83bb35
 			if(InBoard(tempPosition))
 				available.push_back(tempPosition);
 			else
@@ -33,11 +29,7 @@ Queen::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 		}
 		tempPosition = position_;
 		while(InBoard(tempPosition)) {
-<<<<<<< HEAD
-			tempPosition.y+=dir;
-=======
 			tempPosition.y += dir;
->>>>>>> c9fcb93e96fe449105833a1b19a54adaaa83bb35
 			if(InBoard(tempPosition))
 				available.push_back(tempPosition);
 			else
@@ -49,13 +41,8 @@ Queen::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 		for(int dirC : directions) {
 			tempPosition = position_;
 			while(InBoard(tempPosition)) {
-<<<<<<< HEAD
-				tempPosition.x+=dirR;
-				tempPosition.y+=dirC;
-=======
 				tempPosition.x += dirR;
 				tempPosition.y += dirC;
->>>>>>> c9fcb93e96fe449105833a1b19a54adaaa83bb35
 				if(InBoard(tempPosition))
 					available.push_back(tempPosition);
 				else
