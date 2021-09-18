@@ -6,7 +6,6 @@
 
 #include "color.h"    // Color
 #include "position.h" // Position
-
 class Material {
  public:
   Material(Position initPostion, Color color, int points);
@@ -16,6 +15,8 @@ class Material {
   //-----------Getters&Setters--------
   std::string GetColor();
   Position GetPosition();
+  //Change later
+  bool PositionOccupied(const std::vector<Material*> enemy);
   virtual int value() const noexcept = 0;
  protected:
   bool InBoard(Position pos);
