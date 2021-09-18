@@ -12,7 +12,7 @@ class Bishop : public Material {
  public:
   Bishop(std::pair<int, int> initPostion, Color color);
   std::vector<std::pair<int, int>>
-  CheckAvailableMoves(std::vector<Material*> enemy) override;
+  CheckAvailableMoves(const std::vector<Material*>& enemy) override;
 };
 
 #endif // CHESS_SRC_PIECES_BISHOP_H

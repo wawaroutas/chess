@@ -13,7 +13,7 @@ Pawn::Pawn(std::pair<int,int> initPostion,Color color)
 //TODO: Refactor
 //TODO: Add piece collision
 std::vector<std::pair<int, int>> 
-Pawn::CheckAvailableMoves(const std::vector<Material*> enemy) {
+Pawn::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<std::pair<int, int> > available;
 	std::pair<int, int> tempPosition;
 	return available;

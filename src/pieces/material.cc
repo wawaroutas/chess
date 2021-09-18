@@ -12,7 +12,7 @@ Material::Material(std::pair<int, int> initPostion, Color color, int points)
     : position_(initPostion), color_(color),points_(points) {}
 
 bool Material::MoveMaterial(std::pair<int, int> newPosition,
-                            std::vector<Material*> enemy) {
+                            const std::vector<Material*>& enemy) {
 	std::vector<std::pair<int, int>> available = CheckAvailableMoves(enemy);
 	if (std::find(std::begin(available),
                 std::end(available),

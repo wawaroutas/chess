@@ -11,7 +11,7 @@ class Material {
  public:
   Material(std::pair<int, int> initPostion, Color color, int points);
   bool MoveMaterial(std::pair<int, int> newPosition,
-                    std::vector<Material*> enemy);
+                    const std::vector<Material*>& enemy);
   virtual std::vector<std::pair<int, int>> 
   CheckAvailableMoves(std::vector<Material*> enemy) = 0;
   //-----------Getters&Setters--------
