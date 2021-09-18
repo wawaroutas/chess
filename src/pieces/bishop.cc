@@ -13,7 +13,7 @@ Bishop::Bishop(Position initPostion, Color color)
 
 //TODO: Add piece collision
 std::vector<Position>
-Bishop::CheckAvailableMoves(const std::vector<Material*>& enemy) {
+Bishop::AvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<Position> available;
 	Position tempPosition;
 	// first = row / second = column

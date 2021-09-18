@@ -12,7 +12,7 @@ class Bishop : public Material {
  public:
   Bishop(Position initPostion, Color color);
   std::vector<Position>
-  CheckAvailableMoves(const std::vector<Material*>& enemy) override;
+  AvailableMoves(const std::vector<Material*>& enemy) override;
   int value() const noexcept override;
 };
 

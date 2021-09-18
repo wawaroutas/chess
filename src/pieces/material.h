@@ -10,10 +10,9 @@
 class Material {
  public:
   Material(Position initPostion, Color color, int points);
-  bool MoveMaterial(Position newPosition,
-                    const std::vector<Material*>& enemy);
+  bool MoveMaterial(Position newPosition, const std::vector<Material*>& enemy);
   virtual std::vector<Position>
-  CheckAvailableMoves(const std::vector<Material*>& enemy) = 0;
+  AvailableMoves(const std::vector<Material*>& enemy) = 0;
   //-----------Getters&Setters--------
   std::string GetColor();
   Position GetPosition();

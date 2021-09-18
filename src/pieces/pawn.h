@@ -12,7 +12,7 @@ class Pawn : public Material {
  public:
   Pawn(Position initPostion, Color color);
   std::vector<Position>
-  CheckAvailableMoves(const std::vector<Material*>& enemy) override;
+  AvailableMoves(const std::vector<Material*>& enemy) override;
   int value() const noexcept override;
 };
 

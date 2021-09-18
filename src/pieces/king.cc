@@ -14,7 +14,7 @@ King::King(Position initPostion, Color color)
 //TODO: Refactor & cleanup
 //TODO: Add piece collision
 std::vector<Position>
-King::CheckAvailableMoves(const std::vector<Material*>& enemy) {
+King::AvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<Position> available;
 	Position tempPosition;
   //Up&down movement

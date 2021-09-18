@@ -12,7 +12,7 @@ class Knight : public Material {
  public:
   Knight(Position initPostion, Color color);
   std::vector<Position>
-  CheckAvailableMoves(const std::vector<Material*>& enemy) override;
+  AvailableMoves(const std::vector<Material*>& enemy) override;
   int value() const noexcept override;
 };
 

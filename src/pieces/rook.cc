@@ -13,7 +13,7 @@ Rook::Rook(Position initPostion, Color color)
 //TODO: Refactor
 //TODO: Add piece collision
 std::vector<Position>
-Rook::CheckAvailableMoves(const std::vector<Material*>& enemy) {
+Rook::AvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<Position> available;
 	Position tempPosition;
 	// first = row / second = column

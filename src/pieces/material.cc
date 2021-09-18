@@ -13,7 +13,7 @@ Material::Material(Position initPostion, Color color, int points)
 
 bool Material::MoveMaterial(Position newPosition,
                             const std::vector<Material*>& enemy) {
-	std::vector<Position> available = CheckAvailableMoves(enemy);
+	std::vector<Position> available = AvailableMoves(enemy);
 	if (std::find(std::begin(available),
                 std::end(available),
                 newPosition) != std::end(available)) {
