@@ -1,10 +1,10 @@
 #include "knight.h"   // Knight
 
-#include "position.h"    // Position
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
 #include "material.h" // Material
+#include "position.h" // Position
 
 Knight::Knight(Position initPostion, Color color)
     : Material(initPostion, color, 3) {}

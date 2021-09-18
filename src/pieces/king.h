@@ -1,11 +1,11 @@
 #ifndef CHESS_SRC_PIECES_KING_H
 #define CHESS_SRC_PIECES_KING_H
 
-#include "position.h"    // Position
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
 #include "material.h" // Material
+#include "position.h" // Position
 
 
 class King : public Material {

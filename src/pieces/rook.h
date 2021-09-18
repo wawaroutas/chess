@@ -8,7 +8,6 @@
 #include "position.h" // Position
 
 
-
 class Rook : public Material {
  public:
   Rook(Position initPostion, Color color);
