@@ -1,0 +1,10 @@
+# Those files will not be tracked by git
+
+# Python Scripts
+*.py
+
+# Compiled Object files
+*.obj
+
+# Exececutables
+*.exe
