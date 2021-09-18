@@ -46,3 +46,7 @@ Knight::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	}
 	return available;
 }
+
+int Knight::value() const noexcept {
+  return 3;
+}

@@ -33,3 +33,7 @@ Bishop::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	}
 	return available;
 }
+
+int Bishop::value() const noexcept {
+  return 3;
+}

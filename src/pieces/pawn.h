@@ -13,6 +13,7 @@ class Pawn : public Material {
   Pawn(Position initPostion, Color color);
   std::vector<Position>
   CheckAvailableMoves(const std::vector<Material*>& enemy) override;
+  int value() const noexcept override;
 };
 
 #endif // CHESS_SRC_PIECES_PAWN_H

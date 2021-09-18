@@ -17,7 +17,7 @@ class Material {
   //-----------Getters&Setters--------
   std::string GetColor();
   Position GetPosition();
-  int GetPoints();
+  virtual int value() const noexcept = 0;
  protected:
   bool InBoard(Position pos);
   const Color color_;

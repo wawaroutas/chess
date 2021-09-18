@@ -18,3 +18,7 @@ Pawn::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	Position tempPosition;
 	return available;
 }
+
+int Pawn::value() const noexcept {
+  return 1;
+}

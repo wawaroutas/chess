@@ -13,6 +13,7 @@ class Bishop : public Material {
   Bishop(Position initPostion, Color color);
   std::vector<Position>
   CheckAvailableMoves(const std::vector<Material*>& enemy) override;
+  int value() const noexcept override;
 };
 
 #endif // CHESS_SRC_PIECES_BISHOP_H

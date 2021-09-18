@@ -1,10 +1,12 @@
 #include "king.h"     // King
 
+#include <limits>     // std::numeric_limits
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
 #include "material.h" // Material
 #include "position.h" // Position
+
 
 King::King(Position initPostion, Color color)
     : Material(initPostion, color, 1000) {}
@@ -17,4 +19,8 @@ King::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	Position tempPosition;
 
 	return available;
+}
+
+int King::value() const noexcept {
+  return std::numeric_limits<int>::max();
 }

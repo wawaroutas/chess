@@ -40,3 +40,7 @@ Rook::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	}
 	return available;
 }
+
+int Rook::value() const noexcept {
+  return 5;
+}

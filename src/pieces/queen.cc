@@ -52,3 +52,7 @@ Queen::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	}
 	return available;
 }
+
+int Queen::value() const noexcept {
+  return 9;
+}
