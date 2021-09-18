@@ -16,10 +16,10 @@ class Material {
   CheckAvailableMoves(const std::vector<Material*>& enemy) = 0;
   //-----------Getters&Setters--------
   std::string GetColor();
-  std::pair<int,int> GetPosition();
+  Position GetPosition();
   int GetPoints();
  protected:
-  bool InBoard(std::pair<int,int> pos);
+  bool InBoard(Position pos);
   const Color color_;
   Position position_;
   int points_;
