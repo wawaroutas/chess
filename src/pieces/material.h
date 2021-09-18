@@ -16,7 +16,7 @@ class Material {
   CheckAvailableMoves(const std::vector<Material*>& enemy) = 0;
   //-----------Getters&Setters--------
   std::string GetColor();
-  std::pair<int,int> GetPosition();
+  Position GetPosition();
   int GetPoints();
  protected:
   bool InBoard(Position pos);

@@ -8,7 +8,7 @@
 
 
 int main() {
-	Position p(4, 4);
+	Position p = {4, 4};
 	Knight kn(p, Color::kBlack);
 	std::vector<Material*> v;
 	auto yo = kn.CheckAvailableMoves(v);
