@@ -7,12 +7,12 @@
 #include "position.h" // Position
 
 
-Queen::Queen(Position initPostion, Color color) 
+Queen::Queen(Position initPostion, Color color)
     : Material(initPostion, color, 9) {}
 
 //TODO: Refactor
 //TODO: Add piece collision
-std::vector<Position> 
+std::vector<Position>
 Queen::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<Position > available;
 	Position tempPosition;

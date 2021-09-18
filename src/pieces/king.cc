@@ -15,5 +15,6 @@ std::vector<Position>
 King::CheckAvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<Position> available;
 	Position tempPosition;
+
 	return available;
 }
