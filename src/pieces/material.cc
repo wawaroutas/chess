@@ -2,18 +2,18 @@
 
 #include <algorithm>  // std::find()
 #include <string>     // std::string
-#include <utility>    // std::pair
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
+#include "position.h" // Position
 
 
-Material::Material(std::pair<int, int> initPostion, Color color, int points)
+Material::Material(Position initPostion, Color color, int points)
     : position_(initPostion), color_(color),points_(points) {}
 
-bool Material::MoveMaterial(std::pair<int, int> newPosition,
+bool Material::MoveMaterial(Position newPosition,
                             const std::vector<Material*>& enemy) {
-	std::vector<std::pair<int, int>> available = CheckAvailableMoves(enemy);
+	std::vector<Position> available = CheckAvailableMoves(enemy);
 	if (std::find(std::begin(available),
                 std::end(available),
                 newPosition) != std::end(available)) {

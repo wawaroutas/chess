@@ -1,21 +1,21 @@
 #include "queen.h"    // Queen
 
-#include <utility>    // std::pair
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
 #include "material.h" // Material
+#include "position.h" // Position
 
 
-Queen::Queen(std::pair<int, int> initPostion, Color color) 
+Queen::Queen(Position initPostion, Color color) 
     : Material(initPostion, color, 9) {}
 
 //TODO: Refactor
 //TODO: Add piece collision
-std::vector<std::pair<int, int>> 
+std::vector<Position> 
 Queen::CheckAvailableMoves(const std::vector<Material*>& enemy) {
-	std::vector<std::pair<int, int> > available;
-	std::pair<int, int> tempPosition;
+	std::vector<Position > available;
+	Position tempPosition;
 	// first = row / second = column
 	int directions[2] = {-1, 1};
 	for(int dir : directions) {

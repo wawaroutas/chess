@@ -1,21 +1,21 @@
 #include "rook.h"     // Rook
 
-#include <utility>    // std::pair
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
 #include "material.h" // Material
+#include "position.h" // Position
 
 
-Rook::Rook(std::pair<int, int> initPostion, Color color)
+Rook::Rook(Position initPostion, Color color)
     : Material(initPostion, color, 5) {} // TODO: make points static const int
 
 //TODO: Refactor
 //TODO: Add piece collision
-std::vector<std::pair<int, int>>
+std::vector<Position>
 Rook::CheckAvailableMoves(const std::vector<Material*>& enemy) {
-	std::vector<std::pair<int, int>> available;
-	std::pair<int, int> tempPosition;
+	std::vector<Position> available;
+	Position tempPosition;
 	// first = row / second = column
 	int directions[2] = {-1, 1};
 	for(int dir : directions) {

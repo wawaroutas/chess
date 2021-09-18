@@ -1,18 +1,18 @@
 #ifndef CHESS_SRC_PIECES_MATERIAL_H
 #define CHESS_SRC_PIECES_MATERIAL_H
 
-#include <string>  // std::string
-#include <utility> // std::pair
-#include <vector>  // std::vector
+#include <string>     // std::string
+#include <vector>     // std::vector
 
-#include "color.h" // Color
+#include "color.h"    // Color
+#include "position.h" // Position
 
 class Material {
  public:
-  Material(std::pair<int, int> initPostion, Color color, int points);
-  bool MoveMaterial(std::pair<int, int> newPosition,
+  Material(Position initPostion, Color color, int points);
+  bool MoveMaterial(Position newPosition,
                     const std::vector<Material*>& enemy);
-  virtual std::vector<std::pair<int, int>>
+  virtual std::vector<Position>
   CheckAvailableMoves(const std::vector<Material*>& enemy) = 0;
   //-----------Getters&Setters--------
   std::string GetColor();
@@ -21,7 +21,7 @@ class Material {
  protected:
   bool InBoard(std::pair<int,int> pos);
   const Color color_;
-  std::pair<int, int> position_;
+  Position position_;
   int points_;
 };
 

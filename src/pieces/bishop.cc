@@ -1,21 +1,21 @@
 #include "bishop.h"   // Bishop
 
-#include <utility>    // std::pair
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
 #include "material.h" // Material
+#include "position.h" // Position
 
 
-Bishop::Bishop(std::pair<int, int> initPostion, Color color)
+Bishop::Bishop(Position initPostion, Color color)
     : Material(initPostion, color, 3) {}
 
 
 //TODO: Add piece collision
-std::vector<std::pair<int, int>>
+std::vector<Position>
 Bishop::CheckAvailableMoves(const std::vector<Material*>& enemy) {
-	std::vector<std::pair<int, int>> available;
-	std::pair<int, int> tempPosition;
+	std::vector<Position> available;
+	Position tempPosition;
 	// first = row / second = column
 	int directions[2] = {-1, 1};
 	for(int dirR : directions) {

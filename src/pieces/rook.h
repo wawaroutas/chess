@@ -1,18 +1,18 @@
 #ifndef CHESS_SRC_PIECES_ROOK_H
 #define CHESS_SRC_PIECES_ROOK_H
 
-#include <utility>    // std::pair
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
 #include "material.h" // Material
+#include "position.h" // Position
 
 
 
 class Rook : public Material {
  public:
-  Rook(std::pair<int, int> initPostion, Color color);
-  std::vector<std::pair<int, int>> 
+  Rook(Position initPostion, Color color);
+  std::vector<Position> 
   CheckAvailableMoves(const std::vector<Material*>& enemy) override;
 };
 

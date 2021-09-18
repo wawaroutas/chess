@@ -1,10 +1,10 @@
-#include "pawn.h"     // Pawn
+#include "pawn.h"        // Pawn
 
-#include <utility>    // std::pair
-#include <vector>     // std::vector
+#include <vector>        // std::vector
 
-#include "color.h"    // Color
-#include "material.h" // Material
+#include "color.h"       // Color
+#include "material.h"    // Material
+#include "position.h"    // Position
 
 
 Pawn::Pawn(std::pair<int,int> initPostion,Color color) 
@@ -12,9 +12,9 @@ Pawn::Pawn(std::pair<int,int> initPostion,Color color)
 
 //TODO: Refactor
 //TODO: Add piece collision
-std::vector<std::pair<int, int>> 
+std::vector<Position> 
 Pawn::CheckAvailableMoves(const std::vector<Material*>& enemy) {
-	std::vector<std::pair<int, int> > available;
-	std::pair<int, int> tempPosition;
+	std::vector<Position > available;
+	Position tempPosition;
 	return available;
 }

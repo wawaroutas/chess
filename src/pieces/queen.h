@@ -1,7 +1,7 @@
 #ifndef CHESS_SRC_PIECES_QUUEN_H
 #define CHESS_SRC_PIECES_QUEEN_H
 
-#include <utility>    // std::pair
+#include "position.h"    // Position
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
@@ -10,8 +10,8 @@
 
 class Queen : public Material {
  public:
-  Queen(std::pair<int, int> initPostion, Color color);
-  std::vector<std::pair<int, int>>
+  Queen(Position initPostion, Color color);
+  std::vector<Position>
   CheckAvailableMoves(const std::vector<Material*>& enemy) override;
 };
 
