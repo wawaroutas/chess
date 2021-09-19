@@ -9,6 +9,7 @@ class Position {
   bool InBoard() const noexcept;
   bool operator==(const Position& other) const noexcept;
   Position operator+(const Position& other) const noexcept;
+  Position& operator+=(const Position& other );
 };
 
 #endif // CHESS_SRC_POSITION_H

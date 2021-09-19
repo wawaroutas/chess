@@ -18,3 +18,10 @@ Position Position::operator+(const Position& other) const noexcept {
   p.y += other.y;
   return p;
 }
+
+Position& Position::operator+=(const Position& other )
+{
+  x = x + other.x;
+  y = y + other.y;
+  return *this;
+}
