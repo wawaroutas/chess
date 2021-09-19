@@ -35,11 +35,6 @@ Color Material::GetColor()
 {
   return color_;
 }
-
-Position Material::GetPosition()
-{
-  return position_;
-}
 bool PositionOccupied(Position pos,const std::vector<Material*> enemy)
 {
   for(Material* piece : enemy)
