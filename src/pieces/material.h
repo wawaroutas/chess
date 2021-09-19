@@ -18,7 +18,6 @@ class Material {
   //Change later
   virtual int value() const noexcept = 0;
  protected:
-  bool InBoard(Position pos) const;
   const Color color_;
   Position position_;
   int points_;

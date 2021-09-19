@@ -22,10 +22,7 @@ bool Material::MoveMaterial(Position newPosition,
 	}
 	return false;
 }
-// TODO: replace ints with constants of the board dimensions
-bool Material::InBoard(Position pos) const {
-	return pos.x <= 8 && pos.x > 0 && pos.y <= 8 && pos.y > 0;
-}
+
 Position Material::GetPosition() const noexcept {
   return position_;
 }

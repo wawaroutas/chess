@@ -21,8 +21,13 @@ King::AvailableMoves(const std::vector<Material*>& enemy) const {
   };
 	std::vector<Position> available;
   for (Position move : moves) {
-    if (InBoard(position_ + move)) {
-      available.push_back(position_ + move);
+    Position possible_position = position_ + move;
+    if (possible_position.InBoard()) {
+      available.push_back(possible_position);
+      Color color;
+      if (PositionOccupied(possible_position, enemy, color) && color == color_) {
+        available.pop_back();
+      }
     }
   }
 	return available;

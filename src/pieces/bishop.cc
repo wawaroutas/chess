@@ -23,7 +23,7 @@ Bishop::AvailableMoves(const std::vector<Material*>& enemy) const {
 			tempPosition = position_;
       tempPosition.x += dirR;
       tempPosition.y += dirC;
-      while(InBoard(tempPosition))
+      while(tempPosition.InBoard())
       {
           Color c;
           if(PositionOccupied(tempPosition,enemy,c))
