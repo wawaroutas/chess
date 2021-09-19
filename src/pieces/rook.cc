@@ -19,7 +19,7 @@ Rook::AvailableMoves(const std::vector<Material*>& enemy) const {
   {
   	tempPosition = position_;
     tempPosition.x += dir;
-		while(InBoard(tempPosition))
+		while(tempPosition.InBoard())
     {
       Color c;
       if(PositionOccupied(tempPosition,enemy,c))
@@ -41,7 +41,7 @@ Rook::AvailableMoves(const std::vector<Material*>& enemy) const {
   {
     tempPosition = position_;
     tempPosition.y += dir;
-    while(InBoard(tempPosition))
+    while(tempPosition.InBoard())
     {
       Color c;
       if(PositionOccupied(tempPosition,enemy,c))

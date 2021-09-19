@@ -18,7 +18,7 @@ Knight::AvailableMoves(const std::vector<Material*>& enemy) const {
   Position tempPosition;
   for(Position move : moves){
     tempPosition = position_ + move;
-    if(InBoard(tempPosition)){
+    if(tempPosition.InBoard()){
       available.push_back(tempPosition);
       Color c;
       if(PositionOccupied(tempPosition,enemy,c) && c==GetColor()) //Ally occupied
