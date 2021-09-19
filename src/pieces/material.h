@@ -1,9 +1,7 @@
 #ifndef CHESS_SRC_PIECES_MATERIAL_H
 #define CHESS_SRC_PIECES_MATERIAL_H
-
 #include <string>     // std::string
 #include <vector>     // std::vector
-
 #include "color.h"    // Color
 #include "position.h" // Position
 class Material {
@@ -13,10 +11,9 @@ class Material {
   virtual std::vector<Position>
   AvailableMoves(const std::vector<Material*>& enemy) = 0;
   //-----------Getters&Setters--------
-  std::string GetColor();
+  Color GetColor();
   Position GetPosition();
   //Change later
-  bool PositionOccupied(const std::vector<Material*> enemy);
   virtual int value() const noexcept = 0;
  protected:
   bool InBoard(Position pos);
@@ -24,5 +21,8 @@ class Material {
   Position position_;
   int points_;
 };
+//Helpful for finding if a position is occupied by another piece in the board
+//Returns true if it is occupied,false if it is free
+bool PositionOccupied(Position pos,const std::vector<Material*> enemy);
 
 #endif // CHESS_SRC_PIECES_MATERIAL_H

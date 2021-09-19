@@ -24,17 +24,26 @@ bool Material::MoveMaterial(Position newPosition,
 }
 
 bool Material::InBoard(Position pos) {
-	return pos.x <= 8 && pos.y > 0 && pos.y <= 8 && pos.y > 0;
+	return pos.x <= 8 && pos.x > 0 && pos.y <= 8 && pos.y > 0;
 }
 Position Material::GetPosition()
 {
   return position_;
 }
 
-bool Material::PositionOccupied(const std::vector<Material*> enemy)
+Color Material::GetColor()
+{
+  return color_;
+}
+
+Position Material::GetPosition()
+{
+  return position_;
+}
+bool PositionOccupied(Position pos,const std::vector<Material*> enemy)
 {
   for(Material* piece : enemy)
-    if(piece->GetPosition() == this->GetPosition())
+    if(piece->GetPosition() == pos)
       return true;
   return false;
 }
