@@ -8,6 +8,12 @@
 
 
 int main() {
+  King king({4, 4}, Color::kWhite); // a8
+  std::vector<Material*> material;
+  for (auto& [x, y] : king.AvailableMoves(material)) {
+    std::cout << '(' << x << ',' << y << ")\n";
+  }
+  std::cout << std::endl;
 	Queen kn({5,4}, Color::kWhite);
 	Bishop kn1({4,4}, Color::kWhite);
 	Bishop kn2({5,5}, Color::kBlack);

@@ -1,5 +1,6 @@
 #include "king.h"     // King
 
+#include <algorithm>  // std::find(), std::remove_if()
 #include <limits>     // std::numeric_limits
 #include <vector>     // std::vector
 
@@ -15,43 +16,15 @@ King::King(Position initPostion, Color color)
 //TODO: Add piece collision
 std::vector<Position>
 King::AvailableMoves(const std::vector<Material*>& enemy) const {
-  Position moves[] = {
+  static const Position moves[] = {
     {1, 0}, {0, 1}, {1, 1}, {0, -1}, {-1, 0}, {-1, 1}, {1, -1}, {-1, -1}
   };
 	std::vector<Position> available;
-	Position tempPosition;
-  //Up&down movement
-  for(int dir : {-1,1})
-  {
-    tempPosition = position_;
-    tempPosition.x+=dir;
-    if(InBoard(tempPosition))
-      available.push_back(tempPosition);
-    else
-      break;
+  for (Position move : moves) {
+    if (InBoard(position_ + move)) {
+      available.push_back(position_ + move);
+    }
   }
-  //Left&right movement
-  for(int dir : {-1,1})
-  {
-    tempPosition = position_;
-    tempPosition.y+=dir;
-    if(InBoard(tempPosition))
-      available.push_back(tempPosition);
-    else
-      break;
-  }
-  //Diagonal movement
-  for(int dirR : {-1,1}) {
-		for(int dirC : {-1,1}) {
-    tempPosition = position_;
-    tempPosition.x+=dirR;
-    tempPosition.y+=dirC;
-    if(InBoard(tempPosition))
-      available.push_back(tempPosition);
-    else
-      break;
-  }
-}
 	return available;
 }
 
