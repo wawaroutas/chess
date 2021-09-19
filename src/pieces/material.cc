@@ -35,10 +35,16 @@ Color Material::GetColor()
 {
   return color_;
 }
-bool PositionOccupied(Position pos,const std::vector<Material*> enemy)
+
+//Returns true if a position is occupied by a piece in enemy list and stores its
+//color in c variable
+bool PositionOccupied(Position pos,const std::vector<Material*> enemy,Color& color)
 {
   for(Material* piece : enemy)
     if(piece->GetPosition() == pos)
+    {
+      color = piece->GetColor();
       return true;
+    }
   return false;
 }

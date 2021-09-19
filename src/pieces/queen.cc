@@ -10,13 +10,12 @@
 Queen::Queen(Position initPostion, Color color)
     : Material(initPostion, color, 9) {}
 
-//TODO: Refactor
-//TODO: Add piece collision
+//Method that returns all available moves that a Queen can make,including other
+//piece collision and ally collision
 std::vector<Position>
 Queen::AvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<Position > available;
 	Position tempPosition;
-	// first = row / second = column
 	int directions[2] = {-1, 1};
   for(int dir : directions) //up and down movement
   {

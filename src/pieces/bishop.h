@@ -2,7 +2,6 @@
 #define CHESS_SRC_PIECES_BISHOP_H
 
 #include <vector>     // std::vector
-
 #include "color.h"    // Color
 #include "material.h" // Material
 #include "position.h" // Position

@@ -6,4 +6,5 @@ enum Color {
   kWhite
 };
 
+
 #endif // CHESS_SRC_COLOR_H
