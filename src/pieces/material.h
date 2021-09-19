@@ -6,6 +6,8 @@
 
 #include "color.h"    // Color
 #include "position.h" // Position
+
+
 class Material {
  public:
   Material(Position initPostion, Color color, int points);
