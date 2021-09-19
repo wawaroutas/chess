@@ -13,16 +13,6 @@ Rook::Rook(Position initPostion, Color color)
 std::vector<Position>
 Rook::AvailableMoves(const std::vector<Material*>& enemy) const {
 	std::vector<Position> available;
-<<<<<<< HEAD
-  static const Position moves[] = {
-    {1,0}, {0,1}, {-1,0}, {0,-1}
-  };
-
-
-  for(Position move : moves)
-  {
-    for(int i = 0 ; i < 4 ; ++i)
-=======
 	Position tempPosition;
 	int directions[2] = {-1, 1};
 	for(int dir : directions) //up and down movement
@@ -52,7 +42,6 @@ Rook::AvailableMoves(const std::vector<Material*>& enemy) const {
     tempPosition = position_;
     tempPosition.y += dir;
     while(tempPosition.InBoard())
->>>>>>> d120e8c9509e568cd5d5631379a96831fb3b6308
     {
       if(InBoard(position_+move))
       {
