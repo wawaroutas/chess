@@ -1,7 +1,5 @@
 #include "rook.h"     // Rook
-
 #include <vector>     // std::vector
-
 #include "color.h"    // Color
 #include "material.h" // Material
 #include "position.h" // Position
@@ -10,34 +8,57 @@
 Rook::Rook(Position initPostion, Color color)
     : Material(initPostion, color, 5) {} // TODO: make points static const int
 
-//TODO: Refactor
-//TODO: Add piece collision
+//Method that returns all available moves that a Rook can make,including other
+//piece collision and ally collision
 std::vector<Position>
 Rook::AvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<Position> available;
 	Position tempPosition;
-	// first = row / second = column
 	int directions[2] = {-1, 1};
-	for(int dir : directions) {
-		tempPosition = position_;
-		while(InBoard(tempPosition)) {
-			tempPosition.x += dir;
-			if(InBoard(tempPosition)) {
-				available.push_back(tempPosition);
-      } else {
-				break;
+	for(int dir : directions) //up and down movement
+  {
+  	tempPosition = position_;
+    tempPosition.x += dir;
+		while(InBoard(tempPosition))
+    {
+      Color c;
+      if(PositionOccupied(tempPosition,enemy,c))
+      {
+        if(GetColor()==c)
+          break; //Occupied by ally then change direction
+        else
+        {
+          available.push_back(tempPosition); //occupied by enemy then add it
+          break;                             // and change direction
+        }
       }
-		}
-		tempPosition = position_;
-		while(InBoard(tempPosition)) {
-			tempPosition.y += dir;
-			if(InBoard(tempPosition)) {
-				available.push_back(tempPosition);
-      } else {
-				break;
-      }
-		}
+      else  //Not occupied at all
+        available.push_back(tempPosition);
+        tempPosition.x+=dir;
+    }
 	}
+  for(int dir : directions) //Left and right movement
+  {
+    tempPosition = position_;
+    tempPosition.y += dir;
+    while(InBoard(tempPosition))
+    {
+      Color c;
+      if(PositionOccupied(tempPosition,enemy,c))
+      {
+        if(GetColor()==c)
+          break; //Occupied by ally then change direction
+        else
+        {
+          available.push_back(tempPosition); //occupied by enemy then add it
+          break;                             // and change direction
+        }
+      }
+      else  //Not occupied at all
+        available.push_back(tempPosition);
+        tempPosition.y+=dir;
+    }
+  }
 	return available;
 }
 

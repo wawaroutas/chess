@@ -1,7 +1,5 @@
 #include "bishop.h"   // Bishop
-
 #include <vector>     // std::vector
-
 #include "color.h"    // Color
 #include "material.h" // Material
 #include "position.h" // Position
@@ -11,7 +9,8 @@ Bishop::Bishop(Position initPostion, Color color)
     : Material(initPostion, color, 3) {}
 
 
-//TODO: Add piece collision
+//Method that returns all available moves that a Bishop can make,including other
+//piece collision
 std::vector<Position>
 Bishop::AvailableMoves(const std::vector<Material*>& enemy) {
 	std::vector<Position> available;
@@ -25,7 +24,11 @@ Bishop::AvailableMoves(const std::vector<Material*>& enemy) {
 				tempPosition.x += dirR;
 				tempPosition.y += dirC;
 				if(InBoard(tempPosition))
-					available.push_back(tempPosition);
+        {
+          available.push_back(tempPosition);
+          if(PositionOccupied(tempPosition,enemy))
+            break;
+        }
 				else
 					break;
 			}
