@@ -13,8 +13,8 @@ class Material {
   virtual std::vector<Position>
   AvailableMoves(const std::vector<Material*>& enemy) = 0;
   //-----------Getters&Setters--------
-  Color GetColor();
-  Position GetPosition();
+  Color GetColor() const noexcept;
+  Position GetPosition() const noexcept;
   //Change later
   virtual int value() const noexcept = 0;
  protected:
