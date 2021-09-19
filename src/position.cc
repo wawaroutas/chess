@@ -1,7 +1,7 @@
 #include "position.h"
 
 
-Position::Position(int x, int y): x(x), y(y) {}
+Position::Position(int xx, int yy): x(xx), y(yy) {}
 
 bool Position::InBoard() const noexcept {
   return x <= 8 && x > 0 && y <= 8 && y > 0;
@@ -19,8 +19,7 @@ Position Position::operator+(const Position& other) const noexcept {
   return p;
 }
 
-Position& Position::operator+=(const Position& other )
-{
+Position& Position::operator+=(const Position& other) noexcept {
   x = x + other.x;
   y = y + other.y;
   return *this;
