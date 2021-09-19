@@ -21,7 +21,7 @@ Queen::AvailableMoves(const std::vector<Material*>& enemy) const {
 	std::vector<Position> available;
   for (int i = 0; i < kMovableDirections; ++i) {
     Position possible_position = position_;
-    while (IsValid(possible_position += move[i], enemy)) {
+    while (IsValid(possible_position += moves[i], enemy)) {
       available.push_back(possible_position);
     }
   }
