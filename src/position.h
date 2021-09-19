@@ -8,6 +8,7 @@ class Position {
   Position(int x, int y);
   bool operator==(const Position& other) const noexcept;
   Position operator+(const Position& other) const noexcept;
+  Position& operator+=(const Position& other );
 };
 
 #endif // CHESS_SRC_POSITION_H
