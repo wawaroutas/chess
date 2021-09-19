@@ -33,7 +33,7 @@ Color Material::GetColor() const noexcept {
 
 //Returns true if a position is occupied by a piece in enemy list and stores its
 //color in c variable
-bool PositionValid(Position pos, const std::vector<Material*>& enemy, Color& color) {
+bool PositionValid(Position pos, const std::vector<Material*>& enemy, Color color) {
   if(!pos.InBoard()) return false;
   for(Material* piece : enemy)
   {

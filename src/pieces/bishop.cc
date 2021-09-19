@@ -13,37 +13,18 @@ Bishop::Bishop(Position initPostion, Color color)
 //can attack/move
 std::vector<Position>
 Bishop::AvailableMoves(const std::vector<Material*>& enemy) const {
+  static const int kMovableDirections = 4;
+  static const Position moves[kMovableDirections] = {
+    {1, 1}, {-1, 1}, {1, -1}, {-1, -1}
+  };
 	std::vector<Position> available;
-	Position tempPosition;
-	int directions[2] = {-1, 1};
-	for(int dirR : directions)
-  {
-		for(int dirC : directions)
-    {
-			tempPosition = position_;
-      tempPosition.x += dirR;
-      tempPosition.y += dirC;
-      while(tempPosition.InBoard())
-      {
-          Color c;
-          if(PositionOccupied(tempPosition,enemy,c))
-          {
-            if(GetColor()==c)
-              break; //Occupied by ally then change direction
-            else
-            {
-              available.push_back(tempPosition); //occupied by enemy then add it
-              break;                             // and change direction
-            }
-          }
-          else  //Not occupied at all
-            available.push_back(tempPosition);
-          tempPosition.x += dirR;
-          tempPosition.y += dirC;
-      }
-		}
-	}
-	return available;
+  for (Position move : moves) {
+    Position possible_position = position_;
+    while (PositionValid(possible_position += move, enemy, color_)) {
+      available.push_back(possible_position);
+    }
+  }
+  return available;
 }
 
 int Bishop::value() const noexcept {
