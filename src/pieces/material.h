@@ -11,14 +11,14 @@ class Material {
   Material(Position initPostion, Color color, int points);
   bool MoveMaterial(Position newPosition, const std::vector<Material*>& enemy);
   virtual std::vector<Position>
-  AvailableMoves(const std::vector<Material*>& enemy) = 0;
+  AvailableMoves(const std::vector<Material*>& enemy) const = 0;
   //-----------Getters&Setters--------
   Color GetColor() const noexcept;
   Position GetPosition() const noexcept;
   //Change later
   virtual int value() const noexcept = 0;
  protected:
-  bool InBoard(Position pos);
+  bool InBoard(Position pos) const;
   const Color color_;
   Position position_;
   int points_;

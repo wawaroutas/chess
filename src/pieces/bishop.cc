@@ -12,8 +12,7 @@ Bishop::Bishop(Position initPostion, Color color)
 //Method that returns all available moves that a Bishop can make,including other
 //piece collision and ally collision
 std::vector<Position>
-Bishop::AvailableMoves(const std::vector<Material*>& enemy)
-{
+Bishop::AvailableMoves(const std::vector<Material*>& enemy) const {
 	std::vector<Position> available;
 	Position tempPosition;
 	// first = row / second = column

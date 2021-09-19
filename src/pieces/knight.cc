@@ -12,7 +12,7 @@ Knight::Knight(Position initPostion, Color color)
 //TODO: Refactor
 //TODO: Add piece collision
 std::vector<Position>
-Knight::AvailableMoves(const std::vector<Material*>& enemy) {
+Knight::AvailableMoves(const std::vector<Material*>& enemy) const {
 	std::vector<Position> available;
 	Position tempPosition;
 

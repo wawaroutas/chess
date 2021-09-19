@@ -11,7 +11,7 @@ Rook::Rook(Position initPostion, Color color)
 //Method that returns all available moves that a Rook can make,including other
 //piece collision and ally collision
 std::vector<Position>
-Rook::AvailableMoves(const std::vector<Material*>& enemy) {
+Rook::AvailableMoves(const std::vector<Material*>& enemy) const {
 	std::vector<Position> available;
 	Position tempPosition;
 	int directions[2] = {-1, 1};

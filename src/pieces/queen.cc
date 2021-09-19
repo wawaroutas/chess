@@ -13,7 +13,7 @@ Queen::Queen(Position initPostion, Color color)
 //Method that returns all available moves that a Queen can make,including other
 //piece collision and ally collision
 std::vector<Position>
-Queen::AvailableMoves(const std::vector<Material*>& enemy) {
+Queen::AvailableMoves(const std::vector<Material*>& enemy) const {
 	std::vector<Position > available;
 	Position tempPosition;
 	int directions[2] = {-1, 1};
