@@ -25,6 +25,6 @@ class Material {
 };
 //Helpful for finding if a position is occupied by another piece in the board
 //Returns true if it is occupied,false if it is free
-bool PositionOccupied(Position pos,const std::vector<Material*> enemy);
+bool PositionOccupied(Position pos,const std::vector<Material*> enemy,Color&);
 
 #endif // CHESS_SRC_PIECES_MATERIAL_H

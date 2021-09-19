@@ -2,15 +2,18 @@
 #include <iostream>   // std::cout
 #include <vector>     // std::vector
 
-#include "pieces.h"   // King, Queen, Rook, Knight, Bishop, Pawn 
+#include "pieces.h"   // King, Queen, Rook, Knight, Bishop, Pawn
 #include "color.h"    // Color
 #include "position.h" // Position
 
 
 int main() {
-	Position p = {4, 4};
-	Knight kn(p, Color::kBlack);
+	Queen kn({5,4}, Color::kWhite);
+	Bishop kn1({4,4}, Color::kWhite);
+	Bishop kn2({5,5}, Color::kBlack);
 	std::vector<Material*> v;
+	 v.push_back(&kn2);
+	 v.push_back(&kn1);
 	auto yo = kn.AvailableMoves(v);
 	for (auto& [x, y] : yo) {
 		std::cout << '(' << x << ',' << y << ")\n";
