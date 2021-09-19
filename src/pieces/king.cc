@@ -16,21 +16,18 @@ King::King(Position initPostion, Color color)
 //TODO: Add piece collision
 std::vector<Position>
 King::AvailableMoves(const std::vector<Material*>& enemy) const {
-  static const Position moves[] = {
+  static const int kMovableDirections = 8;
+  static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {1, 1}, {0, -1}, {-1, 0}, {-1, 1}, {1, -1}, {-1, -1}
   };
 	std::vector<Position> available;
   for (Position move : moves) {
     Position possible_position = position_ + move;
-    if (possible_position.InBoard()) {
+    if (PositionValid(possible_position, enemy, color_)) {
       available.push_back(possible_position);
-      Color color;
-      if (PositionOccupied(possible_position, enemy, color) && color == color_) {
-        available.pop_back();
-      }
     }
   }
-	return available;
+  return available;
 }
 
 int King::value() const noexcept {
