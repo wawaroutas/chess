@@ -9,13 +9,12 @@ Bishop::Bishop(Position initPostion, Color color)
     : Material(initPostion, color, 3) {}
 
 
-//Method that returns all available moves that a Bishop can make,including other
-//piece collision and ally collision
+//Returns an std::vector<Position> with all available positions a Bishop piece
+//can attack/move
 std::vector<Position>
 Bishop::AvailableMoves(const std::vector<Material*>& enemy) const {
 	std::vector<Position> available;
 	Position tempPosition;
-	// first = row / second = column
 	int directions[2] = {-1, 1};
 	for(int dirR : directions)
   {

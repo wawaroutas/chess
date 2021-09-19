@@ -9,42 +9,22 @@
 Knight::Knight(Position initPostion, Color color)
     : Material(initPostion, color, 3) {}
 
-//TODO: Refactor
-//TODO: Add piece collision
+//Returns an std::vector<Position> with all available positions a Knight piece
+//can attack/move
 std::vector<Position>
 Knight::AvailableMoves(const std::vector<Material*>& enemy) const {
 	std::vector<Position> available;
-	Position tempPosition;
-
-	int directions_double[2] = {-2, 2};
-	int directions_single[2] = {-1, 1};
-
-	for(int double_step : directions_double) {
-		tempPosition = position_;
-		tempPosition.x += double_step;
-		Position temp2_position = tempPosition;
-		for(int single : directions_single) {
-			tempPosition = temp2_position;
-			tempPosition.y += single;
-			if(InBoard(tempPosition))
-				available.push_back(tempPosition);
-			else
-				break;
-		}
-	}
-	for(int double_step : directions_double) {
-		tempPosition = position_;
-		tempPosition.y += double_step;
-		Position temp2_position = tempPosition;
-		for(int single : directions_single) {
-			tempPosition = temp2_position;
-			tempPosition.x+=single;
-			if(InBoard(tempPosition))
-				available.push_back(tempPosition);
-			else
-				break;
-		}
-	}
+  Position moves[] = {{2,1},{2,-1},{-2,1},{-2,-1},{1,2},{-1,2},{1,-2},{-1,-2}};
+  Position tempPosition;
+  for(Position move : moves){
+    tempPosition = position_ + move;
+    if(InBoard(tempPosition)){
+      available.push_back(tempPosition);
+      Color c;
+      if(PositionOccupied(tempPosition,enemy,c) && c==GetColor()) //Ally occupied
+        available.pop_back();              //If its occupied by an ally piece
+    }                                    // remove the position from availables
+  }
 	return available;
 }
 
