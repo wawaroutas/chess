@@ -22,7 +22,7 @@ bool Material::MoveMaterial(Position newPosition,
 	}
 	return false;
 }
-
+// TODO: replace ints with constants of the board dimensions
 bool Material::InBoard(Position pos) {
 	return pos.x <= 8 && pos.x > 0 && pos.y <= 8 && pos.y > 0;
 }
@@ -36,8 +36,7 @@ Color Material::GetColor() const noexcept {
 
 //Returns true if a position is occupied by a piece in enemy list and stores its
 //color in c variable
-bool PositionOccupied(Position pos,const std::vector<Material*>& enemy,Color& color)
-{
+bool PositionOccupied(Position pos, const std::vector<Material*>& enemy, Color& color) {
   for(Material* piece : enemy)
     if(piece->GetPosition() == pos)
     {
