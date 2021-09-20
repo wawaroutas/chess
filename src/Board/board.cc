@@ -6,7 +6,11 @@
 
 
 template<int Files, int Ranks>
-Board<Files, Ranks>::Board() {}
+Board<Files, Ranks>::Board() {
+  if (Files < 0 || Ranks < 0) {
+    throw std::out_of_range("Files and Ranks must be positive integers");
+  }
+}
 
 template<int Files, int Ranks>
 void Board<Files, Ranks>::Init() noexcept {
