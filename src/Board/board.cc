@@ -3,7 +3,7 @@
 #include <stdexcept> // std::out_of_range
 #include <string>    // std::string
 #include <ostream>   // std::ostream
-
+#include "position.h"
 
 template<int Files, int Ranks>
 Board<Files, Ranks>::Board() {}
