@@ -5,15 +5,12 @@
 #include "chesspieces.h"   // King, Queen, Rook, Knight, Bishop, Pawn
 #include "color.h"    // Color
 #include "position.h" // Position
-#include "Location.h"
-
+#include "location.h"
+#include "square.h"
 int main() {
-	Location location(BoardFile::B,1);
-	Location location1(BoardFile::B,1);
-	if(location==location1)
-	std::cout << location.toString();
-	int a = 10 + location.file_;
-	std::cout << "a:" << a ;
+	Location loc(BoardFile::A,2);
+	Square sq(loc,Color::kBlack,nullptr);
+	std::cout<< BoardFile::A<< '\n';
 	// Bishop kn({4,7}, Color::kWhite);
 	// Bishop kn1({3,6}, Color::kWhite);
 	// Bishop kn2({5,6}, Color::kBlack);

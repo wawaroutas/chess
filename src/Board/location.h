@@ -13,6 +13,8 @@ public:
   std::string toString();
   bool operator==(const Location& other);
 };
+std::ostream& operator<<(std::ostream& os,const Location& location);
+
 
 
 #endif /* CHESS_SRC_BOARD_FILE_H  */
