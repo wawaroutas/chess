@@ -16,6 +16,8 @@ class Knight : public Piece {
   std::vector<Position>
   AvailableAttacks(const std::vector<Piece*>& enemy) const override;
   int value() const noexcept override;
+  template<int Files,int Ranks>
+  void move(Board<Files,Ranks> board);
 };
 
 #endif // CHESS_SRC_PIECES_KNIGHT_H

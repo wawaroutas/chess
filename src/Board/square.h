@@ -4,20 +4,20 @@
 #include <ostream>
 
 #include "color.h"
-#include "location.h"
+#include "Position.h"
 // #include "piece.h"
 
 class Piece;
 class Square
 {
 private:
-  Location location_;
+  Position position_;
   Color color_;
   Piece* piece_;
 public:
   Square();
-  Square(Location location,Color color,Piece* piece);
-  Location GetLocation() const;
+  Square(Position position,Color color,Piece* piece);
+  Position GetPosition() const;
   Color GetColor() const;
   Piece* GetPiece();
   bool Occupied();
