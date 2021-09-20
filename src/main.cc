@@ -10,7 +10,7 @@
 int main() {
 	Location loc(BoardFile::A,2);
 	Square sq(loc,Color::kBlack,nullptr);
-	std::cout<< BoardFile::A<< '\n';
+	std::cout<< BoardFile::A << '\n';
 	// Bishop kn({4,7}, Color::kWhite);
 	// Bishop kn1({3,6}, Color::kWhite);
 	// Bishop kn2({5,6}, Color::kBlack);
