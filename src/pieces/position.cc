@@ -1,4 +1,6 @@
-#include "position.h"
+#include "position.h" // Position
+
+#include <ostream>    // std::ostream
 
 
 Position::Position(int xx, int yy): x(xx), y(yy) {}
@@ -23,4 +25,9 @@ Position& Position::operator+=(const Position& other) noexcept {
   x = x + other.x;
   y = y + other.y;
   return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const Position& position) {
+  os << position.y + 7 + 'a' << position.x + '1';
+  return os;
 }

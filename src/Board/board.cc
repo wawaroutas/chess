@@ -1,14 +1,25 @@
-#include "board.h"   // Board
+#include "board.h"    // Board
 
-#include <stdexcept> // std::out_of_range
-#include <string>    // std::string
-#include <ostream>   // std::ostream
-#include "position.h"
+#include <stdexcept>  // std::out_of_range
+#include <string>     // std::string
+#include <ostream>    // std::ostream
+
+#include "position.h" // Position
 
 template<int Files, int Ranks>
 Board<Files, Ranks>::Board() {
   if (Files < 0 || Ranks < 0) {
     throw std::out_of_range("Files and Ranks must be positive integers");
+  }
+  // Setting the color of the Boards Squares
+  for (int i = 0; i < Ranks; ++i) {
+    for (int j = 0; j < Files; ++j) {
+      if (((i + j) % 2) == 0) {
+        square_[i][j].SetColor(Color::kWhite);
+      } else {
+        square_[i][j].SetColor(Color::kBlack);
+      }
+    }
   }
 }
 

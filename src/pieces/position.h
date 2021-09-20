@@ -1,6 +1,9 @@
 #ifndef CHESS_SRC_POSITION_H
 #define CHESS_SRC_POSITION_H
 
+#include <ostream> // std::ostream
+
+
 class Position {
  public:
   int x, y;
@@ -10,6 +13,7 @@ class Position {
   bool operator==(const Position& other) const noexcept;
   Position operator+(const Position& other) const noexcept;
   Position& operator+=(const Position& other) noexcept;
+  friend std::ostream& operator<<(std::ostream&, const Position&);
 };
 
 #endif // CHESS_SRC_POSITION_H
