@@ -14,6 +14,7 @@ class Board {
   void Clear() noexcept;
   Square& square(const std::string&);
   Square& square(int, int);
+  Square& square(const Position&);
   friend std::ostream& operator<<(std::ostream&, const Board&);
  private:
   Square square_[Ranks][Files];

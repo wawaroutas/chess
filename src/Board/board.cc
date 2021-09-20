@@ -28,6 +28,11 @@ Square& Board<Files, Ranks>::square(const std::string& position) {
 }
 
 template<int Files, int Ranks>
+Square& Board<Files, Ranks>::square(const Position& position) {
+  return square(position.x, position.y);
+}
+
+template<int Files, int Ranks>
 Square& Board<Files, Ranks>::square(int x, int y) {
   if (x < 0 || x >= Files || y < 0 || y >= Ranks) {
     throw std::out_of_range("x or y coordinate out of range");
