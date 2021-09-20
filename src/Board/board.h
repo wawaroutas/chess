@@ -6,7 +6,7 @@
 
 #include "square.h" // Square
 
-template<int DimensionX, int DimensionY>
+template<int Files, int Ranks>
 class Board {
  public:
   Board();
@@ -16,7 +16,7 @@ class Board {
   Square& square(int, int);
   friend std::ostream& operator<<(std::ostream&, const Board&);
  private:
-  Square square_[DimensionY][DimensionX];
+  Square square_[Ranks][Files];
 };
 
 #endif // CHESS_SRC_BOARD_BOARD_H
