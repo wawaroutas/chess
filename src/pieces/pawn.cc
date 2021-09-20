@@ -3,7 +3,7 @@
 #include <vector>        // std::vector
 
 #include "color.h"       // Color
-#include "piece.h"    // Piece
+#include "piece.h"       // Piece
 #include "position.h"    // Position
 
 
