@@ -8,7 +8,8 @@
 #include "Position.h"
 #include "square.h"
 int main() {
-
+	Position a(1,1);
+	std::cout << "a(1,1):" << a;
 	// Bishop kn({4,7}, Color::kWhite);
 	// Bishop kn1({3,6}, Color::kWhite);
 	// Bishop kn2({5,6}, Color::kBlack);
