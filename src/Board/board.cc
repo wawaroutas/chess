@@ -68,3 +68,6 @@ std::ostream& operator<<(std::ostream& os, const Board<Files, Ranks>& board) {
   // 1 R N B Q K B N R
   return os;
 }
+
+
+template class Board<8,8>; // Basic chess board
