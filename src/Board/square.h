@@ -15,8 +15,8 @@ class Square {
   Piece* piece_;
  public:
   Square();
-  Square(Position location, Color color, Piece* piece);
-  Position GetLocation() const;
+  Square(Position position,Color color,Piece* piece);
+  Position GetPosition() const;
   Color GetColor() const;
   Piece* GetPiece();
   void SetColor(const Color);

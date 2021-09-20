@@ -35,3 +35,8 @@ std::vector<Position> Knight::AvailableAttacks(const std::vector<Piece*>& enemy)
 {
   return AvailableMoves(enemy);
 }
+
+template<int Files,int Ranks>
+void Knight::move(Board<Files,Ranks> board){
+    
+}
