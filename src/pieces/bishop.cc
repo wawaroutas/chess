@@ -1,18 +1,18 @@
 #include "bishop.h"   // Bishop
 #include <vector>     // std::vector
 #include "color.h"    // Color
-#include "material.h" // Material
+#include "piece.h" // Piece
 #include "position.h" // Position
 
 
 Bishop::Bishop(Position initPostion, Color color)
-    : Material(initPostion, color, 3) {}
+    : Piece(initPostion, color, 3) {}
 
 
 //Returns an std::vector<Position> with all available positions a Bishop piece
 //can attack/move
 std::vector<Position>
-Bishop::AvailableMoves(const std::vector<Material*>& enemy) const {
+Bishop::AvailableMoves(const std::vector<Piece*>& enemy) const {
   static const int kMovableDirections = 4;
   static const Position moves[kMovableDirections] = {
     {1, 1}, {-1, 1}, {1, -1}, {-1, -1}
@@ -22,6 +22,7 @@ Bishop::AvailableMoves(const std::vector<Material*>& enemy) const {
     Position possible_position = position_;
     while (PositionValid(possible_position += move, enemy, color_)) {
       available.push_back(possible_position);
+
     }
   }
   return available;
@@ -29,4 +30,10 @@ Bishop::AvailableMoves(const std::vector<Material*>& enemy) const {
 
 int Bishop::value() const noexcept {
   return 3;
+}
+
+
+std::vector<Position> Bishop::AvailableAttacks(const std::vector<Piece*>& enemy) const
+{
+  return AvailableMoves(enemy);
 }

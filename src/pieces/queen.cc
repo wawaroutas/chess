@@ -3,17 +3,17 @@
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
-#include "material.h" // Material
+#include "piece.h" // Piece
 #include "position.h" // Position
 
 
 Queen::Queen(Position initPostion, Color color)
-    : Material(initPostion, color, 9) {}
+    : Piece(initPostion, color, 9) {}
 
 //Returns an std::vector<Position> with all available positions a Queen piece
 //can attack/move
 std::vector<Position>
-Queen::AvailableMoves(const std::vector<Material*>& enemy) const {
+Queen::AvailableMoves(const std::vector<Piece*>& enemy) const {
   static const int kMovableDirections = 8;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {1, 1}, {0, -1}, {-1, 0}, {-1, 1}, {1, -1}, {-1, -1}
@@ -30,4 +30,10 @@ Queen::AvailableMoves(const std::vector<Material*>& enemy) const {
 
 int Queen::value() const noexcept {
   return 9;
+}
+
+
+std::vector<Position> Queen::AvailableAttacks(const std::vector<Piece*>& enemy) const
+{
+  return AvailableMoves(enemy);
 }

@@ -1,4 +1,4 @@
-#include "material.h" // Material
+#include "piece.h" // Piece
 
 #include <algorithm>  // std::find()
 #include <string>     // std::string
@@ -8,11 +8,11 @@
 #include "position.h" // Position
 
 
-Material::Material(Position initPostion, Color color, int points)
+Piece::Piece(Position initPostion, Color color, int points)
     : position_(initPostion), color_(color),points_(points) {}
 
-bool Material::MoveMaterial(Position newPosition,
-                            const std::vector<Material*>& enemy) {
+bool Piece::MovePiece(Position newPosition,
+                            const std::vector<Piece*>& enemy) {
 	std::vector<Position> available = AvailableMoves(enemy);
 	if (std::find(std::begin(available),
                 std::end(available),
@@ -23,19 +23,19 @@ bool Material::MoveMaterial(Position newPosition,
 	return false;
 }
 
-Position Material::GetPosition() const noexcept {
+Position Piece::GetPosition() const noexcept {
   return position_;
 }
 
-Color Material::GetColor() const noexcept {
+Color Piece::GetColor() const noexcept {
   return color_;
 }
 
 //Returns true if a position is occupied by a piece in enemy list and stores its
 //color in c variable
-bool PositionValid(Position pos, const std::vector<Material*>& enemy, Color color) {
+bool PositionValid(Position pos, const std::vector<Piece*>& enemy, Color color) {
   if(!pos.InBoard()) return false;
-  for(Material* piece : enemy)
+  for(Piece* piece : enemy)
   {
     if(pos == piece->GetPosition() && color == piece->GetColor())
       return false;

@@ -4,15 +4,17 @@
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
-#include "material.h" // Material
+#include "piece.h" // Piece
 #include "position.h" // Position
 
 
-class Knight : public Material {
+class Knight : public Piece {
  public:
   Knight(Position initPostion, Color color);
   std::vector<Position>
-  AvailableMoves(const std::vector<Material*>& enemy) const override;
+  AvailableMoves(const std::vector<Piece*>& enemy) const override;
+  std::vector<Position>
+  AvailableAttacks(const std::vector<Piece*>& enemy) const override;
   int value() const noexcept override;
 };
 

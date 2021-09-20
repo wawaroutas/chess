@@ -1,17 +1,17 @@
 #include "rook.h"     // Rook
 #include <vector>     // std::vector
 #include "color.h"    // Color
-#include "material.h" // Material
+#include "piece.h" // Piece
 #include "position.h" // Position
 
 
 Rook::Rook(Position initPostion, Color color)
-    : Material(initPostion, color, 5) {} // TODO: make points static const int
+    : Piece(initPostion, color, 5) {} // TODO: make points static const int
 
 //Method that returns all available moves that a Rook can make,including other
 //piece collision and ally collision
 std::vector<Position>
-Rook::AvailableMoves(const std::vector<Material*>& enemy) const {
+Rook::AvailableMoves(const std::vector<Piece*>& enemy) const {
   static const int kMovableDirections = 4;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {0, -1}, {-1, 0}
@@ -28,4 +28,11 @@ Rook::AvailableMoves(const std::vector<Material*>& enemy) const {
 
 int Rook::value() const noexcept {
   return 5;
+}
+
+
+
+std::vector<Position> Rook::AvailableAttacks(const std::vector<Piece*>& enemy) const
+{
+  return AvailableMoves(enemy);
 }

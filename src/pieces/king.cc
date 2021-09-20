@@ -5,17 +5,17 @@
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
-#include "material.h" // Material
+#include "piece.h" // Piece
 #include "position.h" // Position
 
 
 King::King(Position initPostion, Color color)
-    : Material(initPostion, color, 1000) {}
+    : Piece(initPostion, color, 1000) {}
 
 //TODO: Refactor & cleanup
 //TODO: Add piece collision
 std::vector<Position>
-King::AvailableMoves(const std::vector<Material*>& enemy) const {
+King::AvailableMoves(const std::vector<Piece*>& enemy) const {
   static const int kMovableDirections = 8;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {1, 1}, {0, -1}, {-1, 0}, {-1, 1}, {1, -1}, {-1, -1}
@@ -31,4 +31,10 @@ King::AvailableMoves(const std::vector<Material*>& enemy) const {
 
 int King::value() const noexcept {
   return std::numeric_limits<int>::max();
+}
+
+
+std::vector<Position> King::AvailableAttacks(const std::vector<Piece*>& enemy) const
+{
+  return AvailableMoves(enemy);
 }
