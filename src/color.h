@@ -4,7 +4,7 @@
 #include <map>
 #include <iostream>
 
-enum Color {
+enum class Color {
   kBlack,
   kWhite
 };
