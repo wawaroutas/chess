@@ -23,18 +23,19 @@ King::AvailableMoves(const std::vector<Material*>& enemy) const {
 	std::vector<Position> available;
   for (Position move : moves) {
     Position possible_position = position_ + move;
-<<<<<<< HEAD
-    if (PositionValid(possible_position,enemy,color_))
-      available.push_back(possible_position);
-=======
     if (PositionValid(possible_position, enemy, color_)) {
       available.push_back(possible_position);
     }
->>>>>>> fd5fef0469de4a56fa7611e241b4e7ae60fb8f86
   }
   return available;
 }
 
 int King::value() const noexcept {
   return std::numeric_limits<int>::max();
+}
+
+
+std::vector<Position> King::AvailableAttacks(const std::vector<Material*>& enemy) const
+{
+  return AvailableMoves(enemy);
 }

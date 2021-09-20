@@ -30,3 +30,8 @@ Knight::AvailableMoves(const std::vector<Material*>& enemy) const {
 int Knight::value() const noexcept {
   return 3;
 }
+
+std::vector<Position> Knight::AvailableAttacks(const std::vector<Material*>& enemy) const
+{
+  return AvailableMoves(enemy);
+}

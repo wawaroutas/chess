@@ -31,3 +31,9 @@ Queen::AvailableMoves(const std::vector<Material*>& enemy) const {
 int Queen::value() const noexcept {
   return 9;
 }
+
+
+std::vector<Position> Queen::AvailableAttacks(const std::vector<Material*>& enemy) const
+{
+  return AvailableMoves(enemy);
+}

@@ -12,6 +12,8 @@ class Material {
   bool MoveMaterial(Position newPosition, const std::vector<Material*>& enemy);
   virtual std::vector<Position>
   AvailableMoves(const std::vector<Material*>& enemy) const = 0;
+  virtual std::vector<Position>
+  AvailableAttacks(const std::vector<Material*>& enemy) const = 0;
   //-----------Getters&Setters--------
   Color GetColor() const noexcept;
   Position GetPosition() const noexcept;

@@ -30,3 +30,9 @@ Bishop::AvailableMoves(const std::vector<Material*>& enemy) const {
 int Bishop::value() const noexcept {
   return 3;
 }
+
+
+std::vector<Position> Bishop::AvailableAttacks(const std::vector<Material*>& enemy) const
+{
+  return AvailableMoves(enemy);
+}

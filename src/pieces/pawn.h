@@ -13,7 +13,11 @@ class Pawn : public Material {
   Pawn(Position initPostion, Color color);
   std::vector<Position>
   AvailableMoves(const std::vector<Material*>& enemy) const override;
+  std::vector<Position>
+  AvailableAttacks(const std::vector<Material*>& enemy) const override;
   int value() const noexcept override;
+private:
+  bool firstMove_;
 };
 
 #endif // CHESS_SRC_PIECES_PAWN_H
