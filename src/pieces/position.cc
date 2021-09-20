@@ -28,6 +28,7 @@ Position& Position::operator+=(const Position& other) noexcept {
 }
 
 std::ostream& operator<<(std::ostream& os, const Position& position) {
-  os << static_cast<char>(position.y + 7 + 'a') << static_cast<char>(position.x + '1');
+  os << static_cast<char>(position.x + 'a') 
+     << static_cast<char>(7 - position.y + '1');
   return os;
 }
