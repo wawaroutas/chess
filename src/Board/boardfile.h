@@ -1,7 +1,7 @@
 #ifndef CHESS_SRC_BOARD_BOARDFILE_H
 #define CHESS_SRC_BOARD_BOARDFILE_H
 
-#include <iostream> // std::ostream
+#include <ostream> // std::ostream
 
 enum class BoardFile : char {
   A = 'A',
