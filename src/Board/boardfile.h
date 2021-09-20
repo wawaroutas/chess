@@ -3,7 +3,7 @@
 
 #include <iostream> // std::ostream
 
-enum BoardFile : char {
+enum class BoardFile : char {
   A = 'A',
   B,
   C,
@@ -18,4 +18,4 @@ inline std::ostream& operator<<(std::ostream& os, const BoardFile file) {
   return os << static_cast<char>(file);
 }
 
-#endif /* CHESS_SRC_BOARD_FILE_H  */
+#endif // CHESS_SRC_BOARD_FILE_H
