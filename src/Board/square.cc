@@ -14,7 +14,7 @@ Square::Square(Position position, Color color, Piece* piece)
     : position_(position), color_(color), piece_(piece) {}
 
 bool Square::operator==(const Square& other) {
-  return other.GetLocation() == position_ && other.GetColor() == color_;
+  return other.GetPosition() == position_ && other.GetColor() == color_;
 }
 
 std::ostream& operator<<(std::ostream& os, Square& square) {
