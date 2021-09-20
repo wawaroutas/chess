@@ -5,4 +5,4 @@ alex:
 board:
 	g++ -Isrc/Board -Isrc/pieces -Isrc -o Chess ./src/main.cc ./src/Board/*.cc -std=c++17
 pieces:
-	g++ -Isrc/Board -Isrc/pieces -Isrc -o Chess ./src/*.cc ./src/pieces/*.cc -std=c++17
+	g++ -Isrc/Board -Isrc/pieces -Isrc -o Chess ./src/main.cc ./src/pieces/*.cc -std=c++17
