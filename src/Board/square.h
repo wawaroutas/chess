@@ -5,8 +5,9 @@
 
 #include "color.h"
 #include "location.h"
-#include "piece.h"
+// #include "piece.h"
 
+class Piece;
 class Square
 {
 private:

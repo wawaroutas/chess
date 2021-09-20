@@ -6,8 +6,13 @@
 #include "position.h" // Position
 
 
+ #include "board.h"
+
+
 class Piece {
  public:
+  template<int Files,int Ranks>
+  void test(Board<Files,Ranks> b);
   Piece(Position initPostion, Color color, int points);
   bool MovePiece(Position newPosition, const std::vector<Piece*>& enemy);
   virtual std::vector<Position>

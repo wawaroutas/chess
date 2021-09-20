@@ -3,7 +3,7 @@
 #include "color.h"    // Color
 #include "piece.h" // Piece
 #include "position.h" // Position
-
+#include "Board.h"
 
 Bishop::Bishop(Position initPostion, Color color)
     : Piece(initPostion, color, 3) {}
