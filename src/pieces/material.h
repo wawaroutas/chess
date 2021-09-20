@@ -20,8 +20,8 @@ class Material {
   //Change later
   virtual int value() const noexcept = 0;
  protected:
-  const Color color_;
   Position position_;
+  const Color color_;
   int points_;
 };
 //Helpful for finding if a position is occupied by another piece in the board
