@@ -22,6 +22,7 @@ Bishop::AvailableMoves(const std::vector<Material*>& enemy) const {
     Position possible_position = position_;
     while (PositionValid(possible_position += move, enemy, color_)) {
       available.push_back(possible_position);
+
     }
   }
   return available;

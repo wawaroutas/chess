@@ -23,14 +23,8 @@ King::AvailableMoves(const std::vector<Material*>& enemy) const {
 	std::vector<Position> available;
   for (Position move : moves) {
     Position possible_position = position_ + move;
-<<<<<<< HEAD
-    if (PositionValid(possible_position, enemy, color_)) {
-      available.push_back(possible_position);
-    }
-=======
     if (PositionValid(possible_position,enemy,color_))
       available.push_back(possible_position);
->>>>>>> 1349eae995f68250bd32e961841b9b5e5ff8aed1
   }
   return available;
 }
