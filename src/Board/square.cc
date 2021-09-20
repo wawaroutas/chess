@@ -4,17 +4,17 @@
 #include "piece.h"
 #include <iostream>
 
-Square::Square(Location location,Color color,Piece* piece)
-: location_(location),color_(color),piece_(piece){}
+Square::Square()
+    : location_(BoardFile::A, 1), color_(Color::kWhite), piece_(nullptr) {}
 
+Square::Square(Location location, Color color, Piece* piece)
+    : location_(location), color_(color), piece_(piece) {}
 
-
-bool Square::operator==(const Square& other)
-{
+bool Square::operator==(const Square& other) {
   return other.GetLocation() == location_ && other.GetColor() == color_;
 }
-std::ostream& operator<<(std::ostream& os,Square& square)
-{
+
+std::ostream& operator<<(std::ostream& os, Square& square) {
    os << "Square: " << square.location_ << "\nColor: " << square.color_
     << "\nPiece:" << square.GetPiece();
    return os;

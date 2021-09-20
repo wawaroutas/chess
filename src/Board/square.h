@@ -1,18 +1,20 @@
 #ifndef CHESS_SRC_BOARD_SQUARE_H
 #define CHESS_SRC_BOARD_SQUARE_H
 
+#include <ostream>
+
 #include "color.h"
 #include "location.h"
 #include "piece.h"
-#include <iostream>
 
 class Square
 {
 private:
-  const Location location_;
-  const Color color_;
+  Location location_;
+  Color color_;
   Piece* piece_;
 public:
+  Square();
   Square(Location location,Color color,Piece* piece);
   Location GetLocation() const;
   Color GetColor() const;
