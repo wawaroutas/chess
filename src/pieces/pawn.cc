@@ -6,30 +6,45 @@
 #include "color.h"    // Color
 #include "piece.h"    // Piece
 #include "position.h" // Position
-
+#include "board.h"    // Board
+#include "square.h"   // Square
 
 Pawn::Pawn(Position initPostion,Color color)
     : Piece(initPostion, color, 1),firstMove_(true) {}
 
-//TODO: Refactor
-//TODO: Add piece collision
+//Returns an std::vector<Position> with all available positions a Pawn piece
+//can capture/move
+//TODO: Add en pessant
 std::vector<Position>
 Pawn::AvailableMoves(Board<8,8> board) const {
 	std::vector<Position> available;
-  // if(firstMove_){
-  //   Position moves[] = {0,2};
-  //   firstMove_ = false;
-  // }
-  // else
-  //   Position moves[] = {0,1};
-  //
-  // for(Position move : moves)
-  // {
-  //   Position possible_position = position_ + move;
-  //   if(PositionValid(possible_position,enemy,color_))
-  //     available.push_back(possible_position);
-  // }
-	return available;
+  Position move = {};
+  if(firstMove_){
+     move = {0,2};
+     firstMove_ = false;
+  }
+  else{
+     move = {0,1};
+  }
+  Position captures[] = {{1,1},{-1,1}};
+  if((position_+move).InBoard())
+  {
+    Square square = board.square(position_+move);
+    if(!square.Occupied()){
+      available.push_back(position_+move);
+    }
+  }
+
+  for(Position capture : captures)
+  {
+    if((position_+capture).InBoard()){
+      Square square = board.square(position_+capture);
+      if(square.Occupied())
+        if(square.GetPiece()->GetColor()!=color_)
+          available.push_back(position_+capture);
+    }
+  }
+  return available;
 }
 
 int Pawn::value() const noexcept {

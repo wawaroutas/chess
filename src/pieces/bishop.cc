@@ -6,7 +6,8 @@
 #include "color.h"    // Color
 #include "piece.h"    // Piece
 #include "position.h" // Position
-#include "Board.h"    // Board
+#include "board.h"    // Board
+#include "square.h"   // Square
 
 
 Bishop::Bishop(Position initPostion, Color color)

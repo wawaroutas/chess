@@ -13,8 +13,10 @@
 King::King(Position initPostion, Color color)
     : Piece(initPostion, color, 1000) {}
 
-//TODO: Refactor & cleanup
-//TODO: Add piece collision
+
+//Returns an std::vector<Position> with all available positions a King piece
+//can attack/move
+//TODO add check 
 std::vector<Position>
 King::AvailableMoves(Board<8,8> board) const {
   static const int kMovableDirections = 8;

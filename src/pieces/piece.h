@@ -23,7 +23,7 @@ class Piece {
   // virtual std::vector<Position>
   // AvailableMoves(const Board<8,8>& board) const = 0;
   std::vector<Position>
-  AvailableAttacks(Board<8,8>) const;
+  AvailableCaptures(Board<8,8>) const;
   //-----------Getters&Setters--------
   Color GetColor() const noexcept;
   Position GetPosition() const noexcept;

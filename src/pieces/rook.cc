@@ -6,13 +6,15 @@
 #include "color.h"    // Color
 #include "piece.h"    // Piece
 #include "position.h" // Position
-
+#include "board.h"    // Board
+#include "square.h"   // Square
 
 Rook::Rook(Position initPostion, Color color)
     : Piece(initPostion, color, 5) {} // TODO: make points static const int
 
-//Method that returns all available moves that a Rook can make,including other
-//piece collision and ally collision
+
+//Returns an std::vector<Position> with all available positions a Rook piece
+//can capture/move
 std::vector<Position>
 Rook::AvailableMoves(Board<8,8> board) const {
   static const int kMovableDirections = 4;
@@ -31,7 +33,6 @@ Rook::AvailableMoves(Board<8,8> board) const {
         break; //Square occupied so move to another direction
     }
   }
-
   return available;
 }
 

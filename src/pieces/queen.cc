@@ -6,13 +6,14 @@
 #include "color.h"    // Color
 #include "piece.h"    // Piece
 #include "position.h" // Position
-
+#include "board.h"    // Board
+#include "square.h"   // Square
 
 Queen::Queen(Position initPostion, Color color)
     : Piece(initPostion, color, 9) {}
 
 //Returns an std::vector<Position> with all available positions a Queen piece
-//can attack/move
+//can capture/move
 std::vector<Position>
 Queen::AvailableMoves(Board<8,8> board) const {
   static const int kMovableDirections = 8;
