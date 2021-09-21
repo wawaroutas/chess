@@ -1,5 +1,7 @@
 #include "player.h"
 
+#include <vector> //std::erase, std::begin/end
+#include <algorithm> // std::remove
 
 
 
@@ -14,4 +16,10 @@ const char* Player::GetName() const noexcept {return name_;}
 
 void Player::AddPoints(int points){
   points_+=points;
+}
+
+void Player::RemovePiece(Piece* piece)
+{
+  pieces_.erase(std::remove(std::begin(pieces_),std::end(pieces_) ,piece)
+  ,std::end(pieces_));
 }
