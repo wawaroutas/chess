@@ -37,10 +37,7 @@ void Knight::Print(std::ostream& os) const noexcept {
   os << 'N';
 }
 
-std::vector<Position> Knight::AvailableAttacks(const std::vector<Piece*>& enemy) const
-{
-  //return AvailableMoves(enemy);
-}
+
 
 std::vector<Position> Knight::AvailableMoves(Board<8,8> board) const
 {

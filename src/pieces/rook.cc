@@ -21,10 +21,17 @@ Rook::AvailableMoves(Board<8,8> board) const {
   };
 	std::vector<Position> available;
   for (Position move : moves) {
-    Position possible_position = position_;
-
+    while((position_+move).InBoard()){
+      Square square = board.square(position_+move);
+      if(canMove(square))
+        available.push_back(position_+move);
+      if(!square.Occupied())
+        move+=move;
+      else
+        break; //Square occupied so move to another direction
     }
-  
+  }
+
   return available;
 }
 
@@ -34,9 +41,4 @@ int Rook::value() const noexcept {
 
 void Rook::Print(std::ostream& os) const noexcept {
   os << 'R';
-}
-
-std::vector<Position>
-Rook::AvailableAttacks(const std::vector<Piece*>& enemy) const {
-  //return AvailableMoves(enemy);
 }

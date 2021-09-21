@@ -21,10 +21,17 @@ Queen::AvailableMoves(Board<8,8> board) const {
   };
 	std::vector<Position> available;
   for (Position move : moves) {
-    Position possible_position = position_;
-
+    while((position_+move).InBoard())
+    {
+      Square square = board.square(position_+move);
+      if(canMove(square))
+        available.push_back(position_+move);
+      if(!square.Occupied())
+        move+=move;
+      else
+        break; //Square occupied so move to another direction
     }
-  
+  }
   return available;
 }
 
@@ -34,9 +41,4 @@ int Queen::value() const noexcept {
 
 void Queen::Print(std::ostream& os) const noexcept {
   os << 'Q';
-}
-
-std::vector<Position> Queen::AvailableAttacks(const std::vector<Piece*>& enemy) const
-{
-  //return AvailableMoves(enemy);
 }

@@ -39,18 +39,3 @@ int Pawn::value() const noexcept {
 void Pawn::Print(std::ostream& os) const noexcept {
   os << 'P';
 }
-
-std::vector<Position> Pawn::AvailableAttacks(const std::vector<Piece*>& enemy) const
-{
-    std::vector<Position> attacks;
-    Position possible_position1 = position_ + Position{-1,1};
-    Position possible_position2 = position_ + Position{1,1};
-    for(Piece* piece : enemy)
-    {
-      if(possible_position1 == piece->GetPosition() && color_ != piece->GetColor())
-        attacks.push_back(possible_position1);
-      if(possible_position2 == piece->GetPosition() && color_ != piece->GetColor())
-        attacks.push_back(possible_position2);
-    }
-    return attacks;
-}

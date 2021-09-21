@@ -42,5 +42,16 @@ bool Piece::canMove(Square& target) const
   if(target.GetPiece()->GetColor() == color_)
     return false;
   return true; //Occupied && different color
+}
 
+std::vector<Position> Piece::AvailableAttacks(Board<8,8> board) const{
+  std::vector<Position> attacks;
+  for(Position pos : AvailableMoves(board))
+  {
+    Square square = board.square(pos);
+    if(square.Occupied())
+      if(square.GetPiece()->GetColor()!=color_)
+        attacks.push_back(pos);
+  }
+  return attacks;
 }

@@ -13,18 +13,20 @@
 class Piece {
  public:
   Piece(Position initPostion, Color color, int points);
+  //Returns true if Piece can move in Square target
+  // True : Square not occupied || Square occupied && Square.Piece.Color != color_
+  // False: Square occupied && Square.Piece.Color == color_
   bool canMove(Square& target) const;
   bool MovePiece(Position newPosition, const std::vector<Piece*>& enemy);
   virtual std::vector<Position>
   AvailableMoves(Board<8,8> board) const = 0;
-  virtual std::vector<Position>
-  AvailableMoves(const Board<8,8>& board) const = 0;
-  virtual std::vector<Position>
-  AvailableAttacks(const std::vector<Piece*>& enemy) const = 0;
+  // virtual std::vector<Position>
+  // AvailableMoves(const Board<8,8>& board) const = 0;
+  std::vector<Position>
+  AvailableAttacks(Board<8,8>) const;
   //-----------Getters&Setters--------
   Color GetColor() const noexcept;
   Position GetPosition() const noexcept;
-  //Change later
   virtual int value() const noexcept = 0;
   friend std::ostream& operator<<(std::ostream&, const Piece&);
  protected:

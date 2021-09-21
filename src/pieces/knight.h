@@ -14,8 +14,6 @@ class Knight : public Piece {
   Knight(Position initPostion, Color color);
   std::vector<Position>
   AvailableMoves(Board<8,8> board) const override;
-  std::vector<Position>
-  AvailableAttacks(const std::vector<Piece*>& enemy) const override;
   int value() const noexcept override;
  protected:
   void Print(std::ostream&) const noexcept override;

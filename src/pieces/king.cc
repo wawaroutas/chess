@@ -8,7 +8,7 @@
 #include "color.h"    // Color
 #include "piece.h"    // Piece
 #include "position.h" // Position
-
+#include "square.h"   // Square
 
 King::King(Position initPostion, Color color)
     : Piece(initPostion, color, 1000) {}
@@ -23,7 +23,12 @@ King::AvailableMoves(Board<8,8> board) const {
   };
 	std::vector<Position> available;
   for (Position move : moves) {
-    Position possible_position = position_ + move;
+    if((position_ + move).InBoard())
+    {
+      Square square = board.square(position_+move);
+      if(canMove(square))
+        available.push_back(position_ + move);
+    }
 
   }
   return available;
@@ -35,9 +40,4 @@ int King::value() const noexcept {
 
 void King::Print(std::ostream& os) const noexcept {
   os << 'K';
-}
-
-std::vector<Position> King::AvailableAttacks(const std::vector<Piece*>& enemy) const
-{
-  //return AvailableMoves(enemy);
 }
