@@ -1,8 +1,16 @@
+CC = g++
+INCLUDES = -Isrc/components -Isrc/Board -Isrc/pieces -Isrc
+OUTPUT = -o Chess
+BOARD = ./src/Board/*.cc
+PIECES = ./src/pieces/*.cc
+COMPONENTS = ./src/components/*.cc
+MAIN = ./src/main.cc
+STD = -std=c++17
 all:
-	g++ -Isrc/Board -Isrc/pieces -Isrc -o Chess ./src/*.cc ./src/pieces/*.cc ./src/Board/*.cc -std=c++17
+	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(PIECES) $(BOARD) $(MAIN) $(STD)
 alex:
-	g++ -std=c++17 -Wall -Wextra -Wshadow -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -pedantic -Wconversion -Wsign-conversion -Wmisleading-indentation -O3 -Isrc/Board -Isrc/pieces -Isrc ./src/*.cc ./src/pieces/*.cc ./src/Board/*.cc
+	g++ -std=c++17 -Wall -Wextra -Wshadow -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -pedantic -Wconversion -Wsign-conversion -Wmisleading-indentation -O3 $(INCLUDES) $(COMPONENTS) $(PIECES) $(BOARD) $(MAIN)
 board:
-	g++ -Isrc/Board -Isrc/pieces -Isrc -o Chess ./src/main.cc ./src/Board/*.cc -std=c++17
+	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(BOARD) $(MAIN) $(STD)
 pieces:
-	g++ -Isrc/Board -Isrc/pieces -Isrc -o Chess ./src/main.cc ./src/pieces/*.cc -std=c++17
+	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(PIECES) $(MAIN) $(STD)

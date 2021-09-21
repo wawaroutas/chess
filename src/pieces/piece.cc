@@ -59,12 +59,6 @@ std::vector<Position> Piece::AvailableCaptures(Board board) const{
 
 //-------------Getters-------------//
 
-Position Piece::GetPosition() const noexcept {
-  return position_;
-}
-
-Color Piece::GetColor() const noexcept {
-  return color_;
-}
-
-std::vector<Position> Piece::GetCurrentMoves(){return currentMoves;}
+Position Piece::GetPosition() const noexcept {return position_;}
+Color Piece::GetColor() const noexcept {return color_;}
+std::vector<Position> Piece::GetCurrentMoves() const noexcept{return currentMoves;}
