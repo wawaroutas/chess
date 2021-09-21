@@ -16,12 +16,11 @@ class Board {
   Square& square(const std::string&);
   Square& square(int, int);
   Square& square(const Position&);
-  void Print(std::ostream&) const;
-  // friend std::ostream& operator<<<>(std::ostream&, const Board&);
+  friend std::ostream& operator<<(std::ostream&, const Board&);
  private:
-  static const int Ranks = 8;
-  static const int Files = 8;
-  Square square_[Ranks][Files];
+  static const int kRanks = 8;
+  static const int kFiles = 8;
+  Square square_[kRanks][kFiles];
 };
 
 #endif // CHESS_SRC_BOARD_BOARD_H

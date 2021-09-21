@@ -8,13 +8,13 @@
 
 
 Board::Board() {
-  if (Files < 0 || Ranks < 0) {
-    throw std::out_of_range("Files and Ranks must be positive integers");
+  if (kFiles < 0 || kRanks < 0) {
+    throw std::out_of_range("kFiles and kRanks must be positive integers");
   }
   // Setting the color of the Boards Squares
-  for (int i = 0; i < Ranks; ++i) {
-    for (int j = 0; j < Files; ++j) {
-      if (((i + j) % 2) == 0) {
+  for (int i = 0; i < kRanks; ++i) {
+    for (int j = 0; j < kFiles; ++j) {
+      if ((i + j) % 2) {
         square_[i][j].SetColor(Color::kWhite);
       } else {
         square_[i][j].SetColor(Color::kBlack);
@@ -44,39 +44,14 @@ Square& Board::square(const Position& position) {
 }
 
 Square& Board::square(int x, int y) {
-  if (x < 0 || x >= Files || y < 0 || y >= Ranks) {
+  if (x < 0 || x >= kFiles || y < 0 || y >= kRanks) {
     throw std::out_of_range("x or y coordinate out of range");
   }
   return square_[y][x];
 }
 
-//
-// std::ostream& operator<<(std::ostream& os, const Board& board) {
-//   //   a b c d e f g h
-//   // 8 R N B Q K B N R
-//   // 7 P P P P P P P P
-//   // 6 . . . . . . . .
-//   // 5 . . . . . . . .
-//   // 4 . . . . . . . .
-//   // 3 . . . . . . . .
-//   // 2 P P P P P P P P
-//   // 1 R N B Q K B N R
-//   os << "  ";
-//   for (int i = 0; i < Files; ++i) {
-//     os << static_cast<char>(i + 'a') << ' ';
-//   }
-//   os << '\n';
-//   for (int i = 0; i < Ranks; ++i) {
-//     os << Ranks - i << ' ';
-//     for (int j = 0; j < Files; ++j) {
-//       os << board.square_[i][j] << ' ';
-//     }
-//     os << '\n';
-//   }
-//   return os;
-// }
 
-void Board::Print(std::ostream& os) const {
+std::ostream& operator<<(std::ostream& os, const Board& board) {
   //   a b c d e f g h
   // 8 R N B Q K B N R
   // 7 P P P P P P P P
@@ -87,15 +62,16 @@ void Board::Print(std::ostream& os) const {
   // 2 P P P P P P P P
   // 1 R N B Q K B N R
   os << "  ";
-  for (int i = 0; i < Files; ++i) {
+  for (int i = 0; i < board.kFiles; ++i) {
     os << static_cast<char>(i + 'a') << ' ';
   }
   os << '\n';
-  for (int i = 0; i < Ranks; ++i) {
-    os << Ranks - i << ' ';
-    for (int j = 0; j < Files; ++j) {
-      os << square_[i][j] << ' ';
+  for (int i = 0; i < board.kRanks; ++i) {
+    os << board.kRanks - i << ' ';
+    for (int j = 0; j < board.kFiles; ++j) {
+      os << board.square_[i][j] << ' ';
     }
     os << '\n';
   }
+  return os;
 }
