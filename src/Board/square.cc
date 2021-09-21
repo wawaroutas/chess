@@ -20,7 +20,7 @@ bool Square::operator==(const Square& other) {
 std::ostream& operator<<(std::ostream& os, const Square& square) {
    if (square.piece_ == nullptr) {
      if (square.color_ == Color::kWhite) {
-       os << static_cast<char>(176); // '▓' 
+       os << static_cast<char>(176); // '▓'
      } else {
        os << static_cast<char>(178); // '░'
      }
@@ -35,6 +35,11 @@ Color Square::GetColor() const {return color_;}
 Piece* Square::GetPiece(){return piece_;}
 bool Square::Occupied(){  return piece_==nullptr;}
 
+//--------Setters-----------//
+void SetPiece(Piece* newPiece)
+{
+  piece_ = newPiece;
+}
 void Square::SetColor(const Color color) {
   color_ = color;
 }
