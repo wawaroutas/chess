@@ -1,3 +1,4 @@
+#Variables
 CC = g++
 INCLUDES = -Isrc/components -Isrc/Board -Isrc/pieces -Isrc -Isrc/Application
 OUTPUT = -o Chess
@@ -9,6 +10,12 @@ MAIN = ./src/main.cc
 STD = -std=c++17
 OPTIMIZATION = -O3
 WARNINGS = -Wall -Wextra -Wshadow -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -pedantic -Wconversion -Wsign-conversion -Wmisleading-indentation
+
+#Targets
+#all compile and link the whole project
+#board compile and link board and main
+#pieces compile and link pieces
+#alex make all but this weird guy added 15 flags
 all:
 	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(PIECES) $(BOARD) $(APPLICATION) $(MAIN) $(STD)
 alex:
