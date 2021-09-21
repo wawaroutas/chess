@@ -1,0 +1,5 @@
+      TODO CHECKLIST
+1. Add en pessant move in Pawn
+2. Add King threat logic before moving pieces
+3. Clean up code in finished files (Pieces,Color etc) :
+consistent naming, comments, dependencies

@@ -35,7 +35,7 @@ std::ostream& operator<<(std::ostream& os, const Square& square) {
 Position Square::GetPosition() const { return position_; }
 Color Square::GetColor() const { return color_; }
 Piece* Square::GetPiece() const { return piece_.get(); }
-bool Square::Occupied() const { return piece_ == nullptr; }
+bool Square::Occupied() const { return piece_ != nullptr; }
 
 //--------Setters-----------//
 void Square::SetPosition(int x, int y) {

@@ -5,12 +5,16 @@
 
 class Player{
 public:
+  Player();
   Player(const char* name,std::vector<Piece*> pieces);
+  void RemovePiece(Piece* piece);
+  void AddPoints(int points);
+  //-----Getters and Setters---------//
   std::vector<Piece*> GetPieces() const noexcept;
   int GetPoints() const noexcept;
-  void AddPoints(int points);
   const char* GetName() const noexcept;
-  void RemovePiece(Piece* piece);
+  void SetName(const char* newName);
+  void SetPieces(std::vector<Piece*> pieces);
 private:
   const char* name_;
   std::vector<Piece*> pieces_;
