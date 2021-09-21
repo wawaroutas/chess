@@ -1,6 +1,7 @@
 #include "piece.h" // Piece
 
 #include <algorithm>  // std::find()
+#include <memory>     // std::shared_ptr
 #include <ostream>    // std::ostream
 #include <string>     // std::string
 #include <vector>     // std::vector
@@ -33,7 +34,7 @@ bool Piece::MovePiece(Position newPosition,Board board){
   for(Position pos : currentMoves){
     if(pos == newPosition){
       //can move there
-      board.square(newPosition).SetPiece(this);
+      board.square(newPosition).SetPiece(std::shared_ptr<Piece>(this));
       board.square(position_).SetPiece(nullptr);
       position_ = newPosition;
       currentMoves = AvailableMoves(board);
