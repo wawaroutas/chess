@@ -21,8 +21,6 @@ class Board {
   // 2 ▓ ░ ▓ ░ ▓ ░ ▓ ░
   // 1 ░ ▓ ░ ▓ ░ ▓ ░ ▓
   Board();
-  // Sets the pieces on the board to their initial positions
-  void Init() noexcept;
   // Removes all the pieces from the board
   void Clear() noexcept;
   Square& square(const std::string&);
@@ -30,6 +28,9 @@ class Board {
   Square& square(const Position&);
   friend std::ostream& operator<<(std::ostream&, const Board&);
  private:
+  // Sets the pieces on the board to their initial positions
+  void Init() noexcept;
+  
   static const int kRanks = 8;
   static const int kFiles = 8;
   Square square_[kRanks][kFiles];
