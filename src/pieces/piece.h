@@ -1,12 +1,13 @@
 #ifndef CHESS_SRC_PIECES_PIECE_H
 #define CHESS_SRC_PIECES_PIECE_H
+
+#include <ostream>    // std::ostream
 #include <string>     // std::string
 #include <vector>     // std::vector
+
 #include "color.h"    // Color
 #include "position.h" // Position
-
-
- #include "board.h"
+#include "board.h"    // Board
 
 
 class Piece {
@@ -25,7 +26,9 @@ class Piece {
   Position GetPosition() const noexcept;
   //Change later
   virtual int value() const noexcept = 0;
+  friend std::ostream& operator<<(std::ostream&, const Piece&);
  protected:
+  virtual void Print(std::ostream&) const noexcept = 0;
   Position position_;
   const Color color_;
   int points_;

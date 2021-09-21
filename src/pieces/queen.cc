@@ -1,9 +1,10 @@
 #include "queen.h"    // Queen
 
+#include <ostream>    // std::ostream
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
-#include "piece.h" // Piece
+#include "piece.h"    // Piece
 #include "position.h" // Position
 
 
@@ -32,6 +33,9 @@ int Queen::value() const noexcept {
   return 9;
 }
 
+void Queen::Print(std::ostream& os) const noexcept {
+  os << 'Q';
+}
 
 std::vector<Position> Queen::AvailableAttacks(const std::vector<Piece*>& enemy) const
 {

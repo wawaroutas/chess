@@ -1,10 +1,11 @@
-#include "pawn.h"        // Pawn
+#include "pawn.h"     // Pawn
 
-#include <vector>        // std::vector
+#include <ostream>    // std::ostream
+#include <vector>     // std::vector
 
-#include "color.h"       // Color
-#include "piece.h"       // Piece
-#include "position.h"    // Position
+#include "color.h"    // Color
+#include "piece.h"    // Piece
+#include "position.h" // Position
 
 
 Pawn::Pawn(Position initPostion,Color color)
@@ -33,6 +34,10 @@ Pawn::AvailableMoves(const std::vector<Piece*>& enemy) const {
 
 int Pawn::value() const noexcept {
   return 1;
+}
+
+void Pawn::Print(std::ostream& os) const noexcept {
+  os << 'P';
 }
 
 std::vector<Position> Pawn::AvailableAttacks(const std::vector<Piece*>& enemy) const

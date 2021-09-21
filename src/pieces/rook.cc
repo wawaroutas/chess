@@ -1,7 +1,10 @@
 #include "rook.h"     // Rook
+
+#include <ostream>    // std::ostream
 #include <vector>     // std::vector
+
 #include "color.h"    // Color
-#include "piece.h" // Piece
+#include "piece.h"    // Piece
 #include "position.h" // Position
 
 
@@ -30,9 +33,11 @@ int Rook::value() const noexcept {
   return 5;
 }
 
+void Rook::Print(std::ostream& os) const noexcept {
+  os << 'R';
+}
 
-
-std::vector<Position> Rook::AvailableAttacks(const std::vector<Piece*>& enemy) const
-{
+std::vector<Position>
+Rook::AvailableAttacks(const std::vector<Piece*>& enemy) const {
   return AvailableMoves(enemy);
 }

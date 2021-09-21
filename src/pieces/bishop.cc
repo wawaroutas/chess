@@ -1,13 +1,16 @@
 #include "bishop.h"   // Bishop
+
+#include <ostream>    // std::ostream
 #include <vector>     // std::vector
+
 #include "color.h"    // Color
-#include "piece.h" // Piece
+#include "piece.h"    // Piece
 #include "position.h" // Position
-#include "Board.h"
+#include "Board.h"    // Board
+
 
 Bishop::Bishop(Position initPostion, Color color)
     : Piece(initPostion, color, 3) {}
-
 
 //Returns an std::vector<Position> with all available positions a Bishop piece
 //can attack/move
@@ -32,8 +35,11 @@ int Bishop::value() const noexcept {
   return 3;
 }
 
+void Bishop::Print(std::ostream& os) const noexcept {
+  os << 'B';
+}
 
-std::vector<Position> Bishop::AvailableAttacks(const std::vector<Piece*>& enemy) const
-{
+std::vector<Position>
+Bishop::AvailableAttacks(const std::vector<Piece*>& enemy) const {
   return AvailableMoves(enemy);
 }

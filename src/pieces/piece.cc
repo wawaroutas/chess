@@ -1,6 +1,7 @@
 #include "piece.h" // Piece
 
 #include <algorithm>  // std::find()
+#include <ostream>    // std::ostream
 #include <string>     // std::string
 #include <vector>     // std::vector
 
@@ -29,6 +30,11 @@ Position Piece::GetPosition() const noexcept {
 
 Color Piece::GetColor() const noexcept {
   return color_;
+}
+
+std::ostream& operator<<(std::ostream& os, const Piece& piece) {
+  piece.Print(os);
+  return os;
 }
 
 //Returns true if a position is occupied by a piece in enemy list and stores its

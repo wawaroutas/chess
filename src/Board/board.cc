@@ -1,10 +1,11 @@
 #include "board.h"    // Board
 
+#include <ostream>    // std::ostream
 #include <stdexcept>  // std::out_of_range
 #include <string>     // std::string
-#include <ostream>    // std::ostream
 
 #include "position.h" // Position
+
 
 template<int Files, int Ranks>
 Board<Files, Ranks>::Board() {
@@ -55,8 +56,34 @@ Square& Board<Files, Ranks>::square(int x, int y) {
   return square_[y][x];
 }
 
+// template<int Files, int Ranks>
+// std::ostream& operator<<(std::ostream& os, const Board<Files, Ranks>& board) {
+//   //   a b c d e f g h
+//   // 8 R N B Q K B N R
+//   // 7 P P P P P P P P
+//   // 6 . . . . . . . .
+//   // 5 . . . . . . . .
+//   // 4 . . . . . . . .
+//   // 3 . . . . . . . .
+//   // 2 P P P P P P P P
+//   // 1 R N B Q K B N R
+//   os << "  ";
+//   for (int i = 0; i < Files; ++i) {
+//     os << static_cast<char>(i + 'a') << ' ';
+//   }
+//   os << '\n';
+//   for (int i = 0; i < Ranks; ++i) {
+//     os << Ranks - i << ' ';
+//     for (int j = 0; j < Files; ++j) {
+//       os << board.square_[i][j] << ' ';
+//     }
+//     os << '\n';
+//   }
+//   return os;
+// }
+
 template<int Files, int Ranks>
-std::ostream& operator<<(std::ostream& os, const Board<Files, Ranks>& board) {
+void Board<Files, Ranks>::Print(std::ostream& os) const {
   //   a b c d e f g h
   // 8 R N B Q K B N R
   // 7 P P P P P P P P
@@ -66,8 +93,19 @@ std::ostream& operator<<(std::ostream& os, const Board<Files, Ranks>& board) {
   // 3 . . . . . . . .
   // 2 P P P P P P P P
   // 1 R N B Q K B N R
-  return os;
+  os << "  ";
+  for (int i = 0; i < Files; ++i) {
+    os << static_cast<char>(i + 'a') << ' ';
+  }
+  os << '\n';
+  for (int i = 0; i < Ranks; ++i) {
+    os << Ranks - i << ' ';
+    for (int j = 0; j < Files; ++j) {
+      os << square_[i][j] << ' ';
+    }
+    os << '\n';
+  }
 }
 
 
-template class Board<8,8>; // Basic chess board
+template class Board<8, 8>; // Basic chess board

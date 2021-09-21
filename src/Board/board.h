@@ -7,6 +7,12 @@
 #include "square.h"   // Square
 #include "position.h" // Position
 
+// template<int Files, int Ranks>
+// class Board;
+
+// template<int Files, int Ranks>
+// std::ostream& operator<<(std::ostream&, const Board<Files, Ranks>&);
+
 template<int Files, int Ranks>
 class Board {
  public:
@@ -16,8 +22,8 @@ class Board {
   Square& square(const std::string&);
   Square& square(int, int);
   Square& square(const Position&);
-  template<int File, int Rank>
-  friend std::ostream& operator<<(std::ostream&, const Board<File,Rank>&);
+  void Print(std::ostream&) const;
+  // friend std::ostream& operator<<<>(std::ostream&, const Board&);
  private:
   Square square_[Ranks][Files];
 };
