@@ -6,14 +6,13 @@
 
 #include "color.h"    // Color
 #include "piece.h"    // Piece
-#include "position.h"    // Position
-#include "board.h"
+#include "position.h" // Position
+#include "board.h"    // Board
 
 class Pawn : public Piece {
  public:
   Pawn(Position initPostion, Color color);
-  std::vector<Position>
-  AvailableMoves(Board<8,8> board) const override;
+  std::vector<Position> AvailableMoves(Board<8,8> board) const override;
   int value() const noexcept override;
  protected:
   void Print(std::ostream&) const noexcept override;

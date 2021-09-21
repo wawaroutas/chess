@@ -9,6 +9,7 @@
 #include "board.h"    // Board
 #include "square.h"   // Square
 
+
 Queen::Queen(Position initPostion, Color color)
     : Piece(initPostion, color, 9) {}
 

@@ -6,8 +6,8 @@
 #include "color.h"    // Color
 #include "piece.h"    // Piece
 #include "position.h" // Position
-#include "square.h"   // Square
 #include "board.h"    // Board
+#include "square.h"   // Square
 
 Knight::Knight(Position initPostion, Color color)
     : Piece(initPostion, color, 3) {}

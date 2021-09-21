@@ -13,17 +13,7 @@
 Piece::Piece(Position initPostion, Color color, int points)
     : position_(initPostion), color_(color),points_(points) {}
 
-// bool Piece::MovePiece(Position newPosition,
-//                             const std::vector<Piece*>& enemy) {
-// 	std::vector<Position> available = AvailableMoves(enemy);
-// 	if (std::find(std::begin(available),
-//                 std::end(available),
-//                 newPosition) != std::end(available)) {
-// 		position_ = newPosition;
-// 		return true;
-// 	}
-// 	return false;
-// }
+
 
 Position Piece::GetPosition() const noexcept {
   return position_;

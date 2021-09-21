@@ -7,13 +7,12 @@
 #include "color.h"    // Color
 #include "piece.h"    // Piece
 #include "position.h" // Position
-
+#include "board.h"    // Board
 
 class Bishop : public Piece {
  public:
   Bishop(Position initPostion, Color color);
-  std::vector<Position>
-  AvailableMoves(Board<8,8> board) const override;
+  std::vector<Position> AvailableMoves(Board<8,8> board) const override;
   int value() const noexcept override;
  protected:
   void Print(std::ostream&) const noexcept override;

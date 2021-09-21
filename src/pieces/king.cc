@@ -1,13 +1,12 @@
 #include "king.h"     // King
 
-#include <algorithm>  // std::find(), std::remove_if()
-#include <limits>     // std::numeric_limits
 #include <ostream>    // std::ostream
 #include <vector>     // std::vector
-
+#include <limits>     // numeric_limits
 #include "color.h"    // Color
 #include "piece.h"    // Piece
 #include "position.h" // Position
+#include "board.h"    // Board
 #include "square.h"   // Square
 
 King::King(Position initPostion, Color color)
@@ -16,7 +15,7 @@ King::King(Position initPostion, Color color)
 
 //Returns an std::vector<Position> with all available positions a King piece
 //can attack/move
-//TODO add check 
+//TODO add check
 std::vector<Position>
 King::AvailableMoves(Board<8,8> board) const {
   static const int kMovableDirections = 8;

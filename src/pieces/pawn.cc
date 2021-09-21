@@ -21,7 +21,7 @@ Pawn::AvailableMoves(Board<8,8> board) const {
   Position move = {};
   if(firstMove_){
      move = {0,2};
-     firstMove_ = false;
+     // firstMove_ = false;
   }
   else{
      move = {0,1};
