@@ -11,17 +11,10 @@
 #include "square.h"   // Square
 
 Piece::Piece(Position initPostion, Color color, int points)
-    : position_(initPostion), color_(color),points_(points) {}
+    : position_(initPostion), color_(color),points_(points)
+    {}
 
 
-
-Position Piece::GetPosition() const noexcept {
-  return position_;
-}
-
-Color Piece::GetColor() const noexcept {
-  return color_;
-}
 
 std::ostream& operator<<(std::ostream& os, const Piece& piece) {
   piece.Print(os);
@@ -32,6 +25,22 @@ bool Piece::canMove(Square& target) const {
   if(target.GetPiece()->GetColor() == color_)
     return false;
   return true; //Occupied && different color
+}
+
+bool Piece::MovePiece(Position newPosition,Board board){
+  if(currentMoves.empty())
+    currentMoves = AvailableMoves(board);
+  for(Position pos : currentMoves){
+    if(pos == newPosition){
+      //can move there
+      board.square(newPosition).SetPiece(this);
+      board.square(position_).SetPiece(nullptr);
+      position_ = newPosition;
+      currentMoves = AvailableMoves(board);
+      return true;
+    }
+  }
+  return false;
 }
 
 std::vector<Position> Piece::AvailableCaptures(Board board) const{
@@ -45,3 +54,10 @@ std::vector<Position> Piece::AvailableCaptures(Board board) const{
   }
   return attacks;
 }
+
+
+//-------------Getters-------------//
+
+Position Piece::GetPosition() const noexcept {return position_;}
+Color Piece::GetColor() const noexcept {return color_;}
+std::vector<Position> Piece::GetCurrentMoves() const noexcept{return currentMoves;}

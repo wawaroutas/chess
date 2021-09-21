@@ -7,9 +7,10 @@
 #include "position.h"    // Position
 #include "square.h"      // Square
 #include "board.h"       // Board
-
+#include "player.h"
 
 int main() {
+  Player player("Nikos",{});
   Board board;
   board.Init();
   std::cout << board;

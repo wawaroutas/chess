@@ -1,8 +1,26 @@
+#Variables
+CC = g++
+INCLUDES = -Isrc/components -Isrc/Board -Isrc/pieces -Isrc -Isrc/Application
+OUTPUT = -o Chess
+BOARD = ./src/Board/*.cc
+PIECES = ./src/pieces/*.cc
+COMPONENTS = ./src/components/*.cc
+APPLICATION = ./src/Application/*.cc
+MAIN = ./src/main.cc
+STD = -std=c++17
+OPTIMIZATION = -O3
+WARNINGS = -Wall -Wextra -Wshadow -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -pedantic -Wconversion -Wsign-conversion -Wmisleading-indentation
+
+#Targets
+#all compile and link the whole project
+#board compile and link board and main
+#pieces compile and link pieces
+#alex make all but this weird guy added 15 flags
 all:
-	g++ -Isrc/Board -Isrc/pieces -Isrc -o Chess ./src/*.cc ./src/pieces/*.cc ./src/Board/*.cc -std=c++17
+	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(PIECES) $(BOARD) $(APPLICATION) $(MAIN) $(STD)
 alex:
-	g++ -std=c++17 -Wall -Wextra -Wshadow -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -pedantic -Wconversion -Wsign-conversion -Wmisleading-indentation -O3 -Isrc/Board -Isrc/pieces -Isrc ./src/*.cc ./src/pieces/*.cc ./src/Board/*.cc
+	$(CC) $(STD) $(WARNINGS) $(OPTIMIZATION) $(INCLUDES) $(COMPONENTS) $(PIECES) $(BOARD) $(APPLICATION) $(MAIN)
 board:
-	g++ -Isrc/Board -Isrc/pieces -Isrc -o Chess ./src/main.cc ./src/Board/*.cc -std=c++17
+	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(BOARD) $(APPLICATION) $(MAIN) $(STD)
 pieces:
-	g++ -Isrc/Board -Isrc/pieces -Isrc -o Chess ./src/main.cc ./src/pieces/*.cc -std=c++17
+	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(PIECES) $(APPLICATION) $(MAIN) $(STD)
