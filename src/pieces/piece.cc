@@ -33,7 +33,6 @@ bool Piece::MovePiece(Position newPosition,Board board){
     currentMoves = AvailableMoves(board);
   for(Position pos : currentMoves){
     if(pos == newPosition){
-      //can move there
       board.square(newPosition).SetPiece(std::shared_ptr<Piece>(this));
       board.square(position_).SetPiece(nullptr);
       position_ = newPosition;

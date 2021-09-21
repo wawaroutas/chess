@@ -10,10 +10,12 @@
 #include "player.h"
 
 int main() {
-  Player player("Nikos",{});
+  Player player;
+  player.SetName("Nikos");
   Board board;
   board.Init();
   std::cout << board;
+  player.SetPieces(board.GetPieces(Color::kBlack));
 	// Position a(0,0), b(7,7);
 	// Board<8,8> e;
 	// e.square(a);

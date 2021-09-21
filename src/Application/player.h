@@ -1,7 +1,10 @@
 #ifndef CHESS_SRC_PLAYER_H
 #define CHESS_SRC_PLAYER_H
 
-#include "piece.h"
+#include <vector>  // std::vector
+
+#include "piece.h" // Piece
+#include "board.h" // Board
 
 class Player{
 public:
@@ -15,6 +18,7 @@ public:
   const char* GetName() const noexcept;
   void SetName(const char* newName);
   void SetPieces(std::vector<Piece*> pieces);
+  void Init(Board board);
 private:
   const char* name_;
   std::vector<Piece*> pieces_;

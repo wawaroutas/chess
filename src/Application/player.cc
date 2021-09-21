@@ -2,7 +2,8 @@
 
 #include <vector> //std::erase, std::begin/end
 #include <algorithm> // std::remove
-
+#include "board.h"  //board
+#include <iostream> //std::cout std::cin
 Player::Player(): name_(0),pieces_({}),points_(0){}
 
 Player::Player(const char* name,std::vector<Piece*> pieces)
@@ -20,6 +21,11 @@ void Player::RemovePiece(Piece* piece)
   ,std::end(pieces_));
 }
 
+void Player::Init(Board board)
+{
+  std::cout << "Enter name\n>";
+  std::cin >> name_;
+}
 
 //---------Getters and Setters--------/
 std::vector<Piece*> Player::GetPieces() const noexcept{return pieces_;}
