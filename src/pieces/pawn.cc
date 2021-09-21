@@ -15,8 +15,7 @@ Pawn::Pawn(Position initPostion,Color color)
 //Returns an std::vector<Position> with all available positions a Pawn piece
 //can capture/move
 //TODO: Add en pessant
-std::vector<Position>
-Pawn::AvailableMoves(Board board) const {
+std::vector<Position> Pawn::AvailableMoves(Board& board) const {
 	std::vector<Position> available;
   Position move = {};
   if(firstMove_){
@@ -29,8 +28,7 @@ Pawn::AvailableMoves(Board board) const {
   Position captures[] = {{1,1},{-1,1}};
   if((position_+move).InBoard())
   {
-    Square square = board.square(position_+move);
-    if(!square.Occupied()){
+    if(!board.square(position_+move).Occupied()){
       available.push_back(position_+move);
     }
   }
@@ -38,9 +36,8 @@ Pawn::AvailableMoves(Board board) const {
   for(Position capture : captures)
   {
     if((position_+capture).InBoard()){
-      Square square = board.square(position_+capture);
-      if(square.Occupied())
-        if(square.GetPiece()->GetColor()!=color_)
+      if(board.square(position_+capture).Occupied())
+        if(board.square(position_+capture).GetPiece()->GetColor() != color_)
           available.push_back(position_+capture);
     }
   }

@@ -19,7 +19,7 @@ class Piece {
   bool canMove(Square& target) const;
   //Returns an std::vector<Position> with all available positions a piece
   //can capture/move
-  virtual std::vector<Position> AvailableMoves(Board board) const = 0;
+  virtual std::vector<Position> AvailableMoves(Board& board) const = 0;
   //Returns an std::vector<Position> with only positions a Piece can capture
   std::vector<Position> AvailableCaptures(Board) const;
   //-----------Getters&Setters--------

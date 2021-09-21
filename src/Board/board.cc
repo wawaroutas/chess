@@ -1,10 +1,13 @@
 #include "board.h"    // Board
 
+#include <memory>     // std::make_shared()
 #include <ostream>    // std::ostream
-#include <stdexcept>  // std::out_of_range
+#include <stdexcept>  // std::out_of_range()
 #include <string>     // std::string
 
+#include "color.h"    // Color
 #include "position.h" // Position
+#include "chesspieces.h" 
 
 
 Board::Board() {
@@ -21,7 +24,39 @@ Board::Board() {
 }
 
 void Board::Init() noexcept {
-  // Fill the board with initial positions of the pieces
+  square_[0][0].SetPiece(std::make_shared<Rook>(Position(0, 0), Color::kBlack));
+  square_[0][2].SetPiece(std::make_shared<Bishop>(Position(0, 2), Color::kBlack));
+  square_[0][1].SetPiece(std::make_shared<Knight>(Position(0, 1), Color::kBlack));
+  square_[0][3].SetPiece(std::make_shared<Queen>(Position(0, 3), Color::kBlack));
+  square_[0][4].SetPiece(std::make_shared<King>(Position(0, 4), Color::kBlack));
+  square_[0][5].SetPiece(std::make_shared<Bishop>(Position(0, 5), Color::kBlack));
+  square_[0][6].SetPiece(std::make_shared<Knight>(Position(0, 6), Color::kBlack));
+  square_[0][7].SetPiece(std::make_shared<Rook>(Position(0, 7), Color::kBlack));
+  square_[1][0].SetPiece(std::make_shared<Pawn>(Position(1, 0), Color::kBlack));
+  square_[1][1].SetPiece(std::make_shared<Pawn>(Position(1, 1), Color::kBlack));
+  square_[1][2].SetPiece(std::make_shared<Pawn>(Position(1, 2), Color::kBlack));
+  square_[1][3].SetPiece(std::make_shared<Pawn>(Position(1, 3), Color::kBlack));
+  square_[1][4].SetPiece(std::make_shared<Pawn>(Position(1, 4), Color::kBlack));
+  square_[1][5].SetPiece(std::make_shared<Pawn>(Position(1, 5), Color::kBlack));
+  square_[1][6].SetPiece(std::make_shared<Pawn>(Position(1, 6), Color::kBlack));
+  square_[1][7].SetPiece(std::make_shared<Pawn>(Position(1, 7), Color::kBlack));
+
+  square_[7][0].SetPiece(std::make_shared<Rook>(Position(7, 0), Color::kWhite));
+  square_[7][1].SetPiece(std::make_shared<Knight>(Position(7, 1), Color::kWhite));
+  square_[7][2].SetPiece(std::make_shared<Bishop>(Position(7, 2), Color::kWhite));
+  square_[7][3].SetPiece(std::make_shared<Queen>(Position(7, 3), Color::kWhite));
+  square_[7][4].SetPiece(std::make_shared<King>(Position(7, 4), Color::kWhite));
+  square_[7][5].SetPiece(std::make_shared<Bishop>(Position(7, 5), Color::kWhite));
+  square_[7][6].SetPiece(std::make_shared<Knight>(Position(7, 6), Color::kWhite));
+  square_[7][7].SetPiece(std::make_shared<Rook>(Position(7, 7), Color::kWhite));
+  square_[6][0].SetPiece(std::make_shared<Pawn>(Position(6, 0), Color::kWhite));
+  square_[6][1].SetPiece(std::make_shared<Pawn>(Position(6, 1), Color::kWhite));
+  square_[6][2].SetPiece(std::make_shared<Pawn>(Position(6, 2), Color::kWhite));
+  square_[6][3].SetPiece(std::make_shared<Pawn>(Position(6, 3), Color::kWhite));
+  square_[6][4].SetPiece(std::make_shared<Pawn>(Position(6, 4), Color::kWhite));
+  square_[6][5].SetPiece(std::make_shared<Pawn>(Position(6, 5), Color::kWhite));
+  square_[6][6].SetPiece(std::make_shared<Pawn>(Position(6, 6), Color::kWhite));
+  square_[6][7].SetPiece(std::make_shared<Pawn>(Position(6, 7), Color::kWhite));
 }
 
 void Board::Clear() noexcept {

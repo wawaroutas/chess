@@ -27,8 +27,7 @@ std::ostream& operator<<(std::ostream& os, const Piece& piece) {
   piece.Print(os);
   return os;
 }
-bool Piece::canMove(Square& target) const
-{
+bool Piece::canMove(Square& target) const {
   if(!target.Occupied()) return true;
   if(target.GetPiece()->GetColor() == color_)
     return false;

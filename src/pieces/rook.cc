@@ -15,8 +15,7 @@ Rook::Rook(Position initPostion, Color color)
 
 //Returns an std::vector<Position> with all available positions a Rook piece
 //can capture/move
-std::vector<Position>
-Rook::AvailableMoves(Board board) const {
+std::vector<Position> Rook::AvailableMoves(Board& board) const {
   static const int kMovableDirections = 4;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {0, -1}, {-1, 0}
@@ -24,10 +23,9 @@ Rook::AvailableMoves(Board board) const {
 	std::vector<Position> available;
   for (Position move : moves) {
     while((position_+move).InBoard()){
-      Square square = board.square(position_+move);
-      if(canMove(square))
+      if(canMove(board.square(position_+move)))
         available.push_back(position_+move);
-      if(!square.Occupied())
+      if(!board.square(position_+move).Occupied())
         move+=move;
       else
         break; //Square occupied so move to another direction

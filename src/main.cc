@@ -11,6 +11,7 @@
 
 int main() {
   Board board;
+  board.Init();
   std::cout << board;
 	// Position a(0,0), b(7,7);
 	// Board<8,8> e;
