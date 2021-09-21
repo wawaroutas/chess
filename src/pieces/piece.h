@@ -13,18 +13,18 @@
 class Piece {
  public:
   Piece(Position initPostion, Color color, int points);
-  bool MovePiece(Position newPosition, const std::vector<Piece*>& enemy);
-  virtual std::vector<Position>
-  AvailableMoves(const std::vector<Piece*>& enemy) const = 0;
-  virtual std::vector<Position>
-  AvailableAttacks(const std::vector<Piece*>& enemy) const = 0;
-
-  // template<int Files,int Ranks>
-  virtual std::vector<Position> test(Board board) const = 0;
+  //Returns true if Piece can move in Square target
+  // True : Square not occupied || Square occupied && Square.Piece.Color != color_
+  // False: Square occupied && Square.Piece.Color == color_
+  bool canMove(Square& target) const;
+  //Returns an std::vector<Position> with all available positions a piece
+  //can capture/move
+  virtual std::vector<Position> AvailableMoves(Board board) const = 0;
+  //Returns an std::vector<Position> with only positions a Piece can capture
+  std::vector<Position> AvailableCaptures(Board) const;
   //-----------Getters&Setters--------
   Color GetColor() const noexcept;
   Position GetPosition() const noexcept;
-  //Change later
   virtual int value() const noexcept = 0;
   friend std::ostream& operator<<(std::ostream&, const Piece&);
  protected:
@@ -33,8 +33,5 @@ class Piece {
   const Color color_;
   int points_;
 };
-//Helpful for finding if a position is occupied by another piece in the board
-//Returns true if it is occupied,false if it is free
-bool PositionValid(Position pos, const std::vector<Piece*>& enemy, Color);
 
 #endif // CHESS_SRC_PIECES_Piece_H

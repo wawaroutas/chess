@@ -7,17 +7,13 @@
 #include "color.h"    // Color
 #include "piece.h"    // Piece
 #include "position.h" // Position
-
+#include "board.h"    // Board
 
 class Knight : public Piece {
  public:
   Knight(Position initPostion, Color color);
-  std::vector<Position>
-  AvailableMoves(const std::vector<Piece*>& enemy) const override;
-  std::vector<Position>
-  AvailableAttacks(const std::vector<Piece*>& enemy) const override;
+  std::vector<Position> AvailableMoves(Board board) const override;
   int value() const noexcept override;
-  void move(Board board);
  protected:
   void Print(std::ostream&) const noexcept override;
 };
