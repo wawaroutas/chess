@@ -6,7 +6,7 @@
 #include "color.h"       // Color
 #include "piece.h"    // Piece
 #include "position.h"    // Position
-
+#include "board.h"
 
 class Pawn : public Piece {
  public:
@@ -15,6 +15,7 @@ class Pawn : public Piece {
   AvailableMoves(const std::vector<Piece*>& enemy) const override;
   std::vector<Position>
   AvailableAttacks(const std::vector<Piece*>& enemy) const override;
+  std::vector<Position> test(Board<8,8> board) const override;
   int value() const noexcept override;
 private:
   bool firstMove_;

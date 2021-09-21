@@ -5,7 +5,8 @@
 #include "color.h"    // Color
 #include "piece.h" // Piece
 #include "position.h" // Position
-
+#include "square.h"
+#include "board.h"
 Knight::Knight(Position initPostion, Color color)
     : Piece(initPostion, color, 3) {}
 
@@ -36,7 +37,20 @@ std::vector<Position> Knight::AvailableAttacks(const std::vector<Piece*>& enemy)
   return AvailableMoves(enemy);
 }
 
-template<int Files,int Ranks>
-void Knight::move(Board<Files,Ranks> board){
-    
+std::vector<Position> Knight::test(Board<8,8> board) const
+{
+  static const int kMovableDirections = 8;
+  static const Position moves[kMovableDirections] = {
+    {2, 1}, {2, -1}, {-2, 1}, {-2, -1}, {1, 2}, {-1, 2}, {1, -2}, {-1, -2}
+  };
+	std::vector<Position> available;
+  for (Position move : moves) {
+    if((position_+move).InBoard()){
+      Position temp = position_ + move;
+      // Square square = board.square(temp);
+      // if(!square.Occupied())
+      //   available.push_back(position_+move);
+    }
+  }
+  return available;
 }
