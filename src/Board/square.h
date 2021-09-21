@@ -6,7 +6,7 @@
 #include "color.h"
 #include "position.h"
 
-class Piece; 
+class Piece;
 
 class Square {
  private:
@@ -19,6 +19,7 @@ class Square {
   Position GetPosition() const;
   Color GetColor() const;
   Piece* GetPiece();
+  void SetPiece(Piece* newPiece);
   void SetColor(const Color);
   bool Occupied();
   bool operator==(const Square& other);
