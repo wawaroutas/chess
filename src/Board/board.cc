@@ -4,12 +4,13 @@
 #include <ostream>    // std::ostream
 #include <stdexcept>  // std::out_of_range()
 #include <string>     // std::string
+#include <vector>     // std::vector
 
 #include "color.h"    // Color
 #include "position.h" // Position
-#include "chesspieces.h" 
+#include "chesspieces.h"
 
-
+#include <iostream>
 Board::Board() {
   for (int i = 0; i < kRanks; ++i) {
     for (int j = 0; j < kFiles; ++j) {
@@ -111,4 +112,19 @@ std::ostream& operator<<(std::ostream& os, const Board& board) {
     os << '\n';
   }
   return os;
+}
+
+
+std::vector<Piece*> Board::GetPieces(Color c)
+{
+  std::vector<Piece*> pieces;
+  for (int i = 0; i < kRanks; ++i) {
+    for (int j = 0; j < kFiles; ++j) {
+      if(square_[i][j].Occupied()){
+        if(square_[i][j].GetPiece()->GetColor() == c)
+          pieces.push_back(square_[i][j].GetPiece());
+      }
+    }
+  }
+  return pieces;
 }

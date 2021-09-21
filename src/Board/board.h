@@ -3,6 +3,7 @@
 
 #include <ostream>    // std::ostream
 #include <string>     // std::string
+#include <vector>     // std::vector
 
 #include "square.h"   // Square
 #include "position.h" // Position
@@ -28,6 +29,8 @@ class Board {
   Square& square(const std::string&);
   Square& square(int, int);
   Square& square(const Position&);
+  //Returns an std::vector<Piece*> of all pieces matching color c
+  std::vector<Piece*> GetPieces(Color c);
   friend std::ostream& operator<<(std::ostream&, const Board&);
  private:
   static const int kRanks = 8;
