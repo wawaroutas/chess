@@ -16,14 +16,6 @@ Piece::Piece(Position initPostion, Color color, int points)
 
 
 
-Position Piece::GetPosition() const noexcept {
-  return position_;
-}
-
-Color Piece::GetColor() const noexcept {
-  return color_;
-}
-
 std::ostream& operator<<(std::ostream& os, const Piece& piece) {
   piece.Print(os);
   return os;
@@ -63,3 +55,16 @@ std::vector<Position> Piece::AvailableCaptures(Board board) const{
   }
   return attacks;
 }
+
+
+//-------------Getters-------------//
+
+Position Piece::GetPosition() const noexcept {
+  return position_;
+}
+
+Color Piece::GetColor() const noexcept {
+  return color_;
+}
+
+std::vector<Position> Piece::GetCurrentMoves(){return currentMoves;}
