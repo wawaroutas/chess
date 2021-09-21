@@ -30,15 +30,18 @@ std::ostream& operator<<(std::ostream& os, const Square& square) {
    return os;
 }
 //------Getters-----//
-Position Square::GetPosition() const {return position_;}
-Color Square::GetColor() const {return color_;}
-Piece* Square::GetPiece(){return piece_;}
-bool Square::Occupied(){  return piece_==nullptr;}
+Position Square::GetPosition() const { return position_; }
+Color Square::GetColor() const { return color_; }
+Piece* Square::GetPiece() const { return piece_; }
+bool Square::Occupied() const { return piece_ == nullptr; }
 
 //--------Setters-----------//
-void SetPiece(Piece* newPiece)
-{
-  piece_ = newPiece;
+void Square::SetPosition(int x, int y) {
+  position_.x = x;
+  position_.y = y;
+}
+void Square::SetPiece(Piece* piece) {
+  piece_ = piece;
 }
 void Square::SetColor(const Color color) {
   color_ = color;

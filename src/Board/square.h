@@ -18,10 +18,11 @@ class Square {
   Square(Position position,Color color,Piece* piece);
   Position GetPosition() const;
   Color GetColor() const;
-  Piece* GetPiece();
+  Piece* GetPiece() const;
+  void SetPosition(int x, int y);
   void SetPiece(Piece* newPiece);
   void SetColor(const Color);
-  bool Occupied();
+  bool Occupied() const;
   bool operator==(const Square& other);
   friend std::ostream& operator<<(std::ostream&, const Square&);
 };

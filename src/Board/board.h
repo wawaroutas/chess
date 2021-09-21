@@ -10,8 +10,20 @@
 
 class Board {
  public:
+  // Sets the boards squares colors and positions
+  //   a b c d e f g h
+  // 8 ▓ ░ ▓ ░ ▓ ░ ▓ ░
+  // 7 ░ ▓ ░ ▓ ░ ▓ ░ ▓
+  // 6 ▓ ░ ▓ ░ ▓ ░ ▓ ░
+  // 5 ░ ▓ ░ ▓ ░ ▓ ░ ▓
+  // 4 ▓ ░ ▓ ░ ▓ ░ ▓ ░
+  // 3 ░ ▓ ░ ▓ ░ ▓ ░ ▓
+  // 2 ▓ ░ ▓ ░ ▓ ░ ▓ ░
+  // 1 ░ ▓ ░ ▓ ░ ▓ ░ ▓
   Board();
+  // Sets the pieces on the board to their initial positions
   void Init() noexcept;
+  // Removes all the pieces from the board
   void Clear() noexcept;
   Square& square(const std::string&);
   Square& square(int, int);

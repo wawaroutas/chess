@@ -8,12 +8,9 @@
 
 
 Board::Board() {
-  if (kFiles < 0 || kRanks < 0) {
-    throw std::out_of_range("kFiles and kRanks must be positive integers");
-  }
-  // Setting the color of the Boards Squares
   for (int i = 0; i < kRanks; ++i) {
     for (int j = 0; j < kFiles; ++j) {
+      square_[i][j].SetPosition(j, i);
       if ((i + j) % 2) {
         square_[i][j].SetColor(Color::kWhite);
       } else {
@@ -26,8 +23,13 @@ Board::Board() {
 void Board::Init() noexcept {
   // Fill the board with initial positions of the pieces
 }
+
 void Board::Clear() noexcept {
-  // Remove all pieces from the squares
+  for (int i = 0; i < kRanks; ++i) {
+    for (int j = 0; j < kFiles; ++j) {
+      square_[i][j].SetPiece(nullptr);
+    }
+  }
 }
 
 Square& Board::square(const std::string& position) {
