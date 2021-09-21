@@ -10,9 +10,9 @@
 
 
 int main() {
-  Board<8, 8> board;
-  board.Print(std::cout);
 	// Position a(0,0), b(7,7);
+	// Board<8,8> e;
+	// e.square(a);
 	// std::cout << "a(0,0):" << a << ' ' << b;
 	// Bishop kn({4,7}, Color::kWhite);
 	// Bishop kn1({3,6}, Color::kWhite);
