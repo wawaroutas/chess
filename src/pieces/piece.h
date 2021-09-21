@@ -17,7 +17,7 @@ class Piece {
   // True : Square not occupied || Square occupied && Square.Piece.Color != color_
   // False: Square occupied && Square.Piece.Color == color_
   bool canMove(Square& target) const;
-  bool MovePiece(Position newPosition, const std::vector<Piece*>& enemy);
+  bool MovePiece(Position newPosition, Board<8,8> board);
   virtual std::vector<Position>
   AvailableMoves(Board<8,8> board) const = 0;
   // virtual std::vector<Position>
