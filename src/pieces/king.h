@@ -13,7 +13,7 @@ class King : public Piece {
  public:
   King(Position initPostion, Color color);
   std::vector<Position>
-  AvailableMoves(const std::vector<Piece*>& enemy) const override;
+  AvailableMoves(Board<8,8> board) const override;
   std::vector<Position>
   AvailableAttacks(const std::vector<Piece*>& enemy) const override;
   int value() const noexcept override;

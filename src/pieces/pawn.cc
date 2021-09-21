@@ -14,7 +14,7 @@ Pawn::Pawn(Position initPostion,Color color)
 //TODO: Refactor
 //TODO: Add piece collision
 std::vector<Position>
-Pawn::AvailableMoves(const std::vector<Piece*>& enemy) const {
+Pawn::AvailableMoves(Board<8,8> board) const {
 	std::vector<Position> available;
   // if(firstMove_){
   //   Position moves[] = {0,2};
@@ -53,13 +53,4 @@ std::vector<Position> Pawn::AvailableAttacks(const std::vector<Piece*>& enemy) c
         attacks.push_back(possible_position2);
     }
     return attacks;
-}
-
-std::vector<Position> Pawn::test(Board<8,8> board) const
-{
-  
-	std::vector<Position> available;
-
-  return available;
-
 }

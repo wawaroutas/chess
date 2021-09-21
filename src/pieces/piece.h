@@ -13,14 +13,14 @@
 class Piece {
  public:
   Piece(Position initPostion, Color color, int points);
+  bool canMove(Square& target) const;
   bool MovePiece(Position newPosition, const std::vector<Piece*>& enemy);
   virtual std::vector<Position>
-  AvailableMoves(const std::vector<Piece*>& enemy) const = 0;
+  AvailableMoves(Board<8,8> board) const = 0;
+  virtual std::vector<Position>
+  AvailableMoves(const Board<8,8>& board) const = 0;
   virtual std::vector<Position>
   AvailableAttacks(const std::vector<Piece*>& enemy) const = 0;
-
-  // template<int Files,int Ranks>
-  virtual std::vector<Position> test(Board<8,8> board) const =0;
   //-----------Getters&Setters--------
   Color GetColor() const noexcept;
   Position GetPosition() const noexcept;
@@ -33,8 +33,5 @@ class Piece {
   const Color color_;
   int points_;
 };
-//Helpful for finding if a position is occupied by another piece in the board
-//Returns true if it is occupied,false if it is free
-bool PositionValid(Position pos, const std::vector<Piece*>& enemy, Color);
 
 #endif // CHESS_SRC_PIECES_Piece_H

@@ -16,7 +16,7 @@ King::King(Position initPostion, Color color)
 //TODO: Refactor & cleanup
 //TODO: Add piece collision
 std::vector<Position>
-King::AvailableMoves(const std::vector<Piece*>& enemy) const {
+King::AvailableMoves(Board<8,8> board) const {
   static const int kMovableDirections = 8;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {1, 1}, {0, -1}, {-1, 0}, {-1, 1}, {1, -1}, {-1, -1}
@@ -24,8 +24,7 @@ King::AvailableMoves(const std::vector<Piece*>& enemy) const {
 	std::vector<Position> available;
   for (Position move : moves) {
     Position possible_position = position_ + move;
-    if (PositionValid(possible_position,enemy,color_))
-      available.push_back(possible_position);
+
   }
   return available;
 }
@@ -40,5 +39,5 @@ void King::Print(std::ostream& os) const noexcept {
 
 std::vector<Position> King::AvailableAttacks(const std::vector<Piece*>& enemy) const
 {
-  return AvailableMoves(enemy);
+  //return AvailableMoves(enemy);
 }

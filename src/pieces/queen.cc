@@ -14,7 +14,7 @@ Queen::Queen(Position initPostion, Color color)
 //Returns an std::vector<Position> with all available positions a Queen piece
 //can attack/move
 std::vector<Position>
-Queen::AvailableMoves(const std::vector<Piece*>& enemy) const {
+Queen::AvailableMoves(Board<8,8> board) const {
   static const int kMovableDirections = 8;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {1, 1}, {0, -1}, {-1, 0}, {-1, 1}, {1, -1}, {-1, -1}
@@ -22,10 +22,9 @@ Queen::AvailableMoves(const std::vector<Piece*>& enemy) const {
 	std::vector<Position> available;
   for (Position move : moves) {
     Position possible_position = position_;
-    while (PositionValid(possible_position += move, enemy, color_)) {
-      available.push_back(possible_position);
+
     }
-  }
+  
   return available;
 }
 
@@ -39,5 +38,5 @@ void Queen::Print(std::ostream& os) const noexcept {
 
 std::vector<Position> Queen::AvailableAttacks(const std::vector<Piece*>& enemy) const
 {
-  return AvailableMoves(enemy);
+  //return AvailableMoves(enemy);
 }

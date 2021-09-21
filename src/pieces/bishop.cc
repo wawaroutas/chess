@@ -15,7 +15,7 @@ Bishop::Bishop(Position initPostion, Color color)
 //Returns an std::vector<Position> with all available positions a Bishop piece
 //can attack/move
 std::vector<Position>
-Bishop::AvailableMoves(const std::vector<Piece*>& enemy) const {
+Bishop::AvailableMoves(Board<8,8> board) const {
   static const int kMovableDirections = 4;
   static const Position moves[kMovableDirections] = {
     {1, 1}, {-1, 1}, {1, -1}, {-1, -1}
@@ -23,10 +23,7 @@ Bishop::AvailableMoves(const std::vector<Piece*>& enemy) const {
 	std::vector<Position> available;
   for (Position move : moves) {
     Position possible_position = position_;
-    while (PositionValid(possible_position += move, enemy, color_)) {
-      available.push_back(possible_position);
 
-    }
   }
   return available;
 }
@@ -41,5 +38,5 @@ void Bishop::Print(std::ostream& os) const noexcept {
 
 std::vector<Position>
 Bishop::AvailableAttacks(const std::vector<Piece*>& enemy) const {
-  return AvailableMoves(enemy);
+  ////return AvailableMoves(enemy);
 }

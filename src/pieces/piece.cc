@@ -12,17 +12,17 @@
 Piece::Piece(Position initPostion, Color color, int points)
     : position_(initPostion), color_(color),points_(points) {}
 
-bool Piece::MovePiece(Position newPosition,
-                            const std::vector<Piece*>& enemy) {
-	std::vector<Position> available = AvailableMoves(enemy);
-	if (std::find(std::begin(available),
-                std::end(available),
-                newPosition) != std::end(available)) {
-		position_ = newPosition;
-		return true;
-	}
-	return false;
-}
+// bool Piece::MovePiece(Position newPosition,
+//                             const std::vector<Piece*>& enemy) {
+// 	std::vector<Position> available = AvailableMoves(enemy);
+// 	if (std::find(std::begin(available),
+//                 std::end(available),
+//                 newPosition) != std::end(available)) {
+// 		position_ = newPosition;
+// 		return true;
+// 	}
+// 	return false;
+// }
 
 Position Piece::GetPosition() const noexcept {
   return position_;
@@ -36,15 +36,11 @@ std::ostream& operator<<(std::ostream& os, const Piece& piece) {
   piece.Print(os);
   return os;
 }
+bool Piece::canMove(Square& target) const
+{
+  if(!target.Occupied()) return true;
+  if(target.GetPiece()->GetColor() == color_)
+    return false;
+  return true; //Occupied && different color
 
-//Returns true if a position is occupied by a piece in enemy list and stores its
-//color in c variable
-bool PositionValid(Position pos, const std::vector<Piece*>& enemy, Color color) {
-  if(!pos.InBoard()) return false;
-  for(Piece* piece : enemy)
-  {
-    if(pos == piece->GetPosition() && color == piece->GetColor())
-      return false;
-  }
-  return true;
 }
