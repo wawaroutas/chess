@@ -16,7 +16,7 @@ Queen::Queen(Position initPostion, Color color)
 //Returns an std::vector<Position> with all available positions a Queen piece
 //can capture/move
 std::vector<Position>
-Queen::AvailableMoves(Board<8,8> board) const {
+Queen::AvailableMoves(Board board) const {
   static const int kMovableDirections = 8;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {1, 1}, {0, -1}, {-1, 0}, {-1, 1}, {1, -1}, {-1, -1}

@@ -16,7 +16,7 @@ Bishop::Bishop(Position initPostion, Color color)
 //Returns an std::vector<Position> with all available positions a Bishop piece
 //can attack/move
 std::vector<Position>
-Bishop::AvailableMoves(Board<8,8> board) const {
+Bishop::AvailableMoves(Board board) const {
   static const int kMovableDirections = 4;
   static const Position moves[kMovableDirections] = {
     {1, 1}, {-1, 1}, {1, -1}, {-1, -1}

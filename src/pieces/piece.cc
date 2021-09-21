@@ -35,7 +35,7 @@ bool Piece::canMove(Square& target) const
   return true; //Occupied && different color
 }
 
-std::vector<Position> Piece::AvailableCaptures(Board<8,8> board) const{
+std::vector<Position> Piece::AvailableCaptures(Board board) const{
   std::vector<Position> attacks;
   for(Position pos : AvailableMoves(board))
   {

@@ -16,7 +16,7 @@ Pawn::Pawn(Position initPostion,Color color)
 //can capture/move
 //TODO: Add en pessant
 std::vector<Position>
-Pawn::AvailableMoves(Board<8,8> board) const {
+Pawn::AvailableMoves(Board board) const {
 	std::vector<Position> available;
   Position move = {};
   if(firstMove_){

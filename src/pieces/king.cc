@@ -17,7 +17,7 @@ King::King(Position initPostion, Color color)
 //can attack/move
 //TODO add check
 std::vector<Position>
-King::AvailableMoves(Board<8,8> board) const {
+King::AvailableMoves(Board board) const {
   static const int kMovableDirections = 8;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {1, 1}, {0, -1}, {-1, 0}, {-1, 1}, {1, -1}, {-1, -1}

@@ -17,21 +17,11 @@ class Piece {
   // True : Square not occupied || Square occupied && Square.Piece.Color != color_
   // False: Square occupied && Square.Piece.Color == color_
   bool canMove(Square& target) const;
-<<<<<<< HEAD
   //Returns an std::vector<Position> with all available positions a piece
   //can capture/move
-  virtual std::vector<Position> AvailableMoves(Board<8,8> board) const = 0;
+  virtual std::vector<Position> AvailableMoves(Board board) const = 0;
   //Returns an std::vector<Position> with only positions a Piece can capture
-  std::vector<Position> AvailableCaptures(Board<8,8>) const;
-=======
-  bool MovePiece(Position newPosition, Board<8,8> board);
-  virtual std::vector<Position>
-  AvailableMoves(Board<8,8> board) const = 0;
-  // virtual std::vector<Position>
-  // AvailableMoves(const Board<8,8>& board) const = 0;
-  std::vector<Position>
-  AvailableCaptures(Board<8,8>) const;
->>>>>>> cbaabe06164416aea54d0c6b006da58ec93760ec
+  std::vector<Position> AvailableCaptures(Board) const;
   //-----------Getters&Setters--------
   Color GetColor() const noexcept;
   Position GetPosition() const noexcept;

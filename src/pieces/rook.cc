@@ -16,7 +16,7 @@ Rook::Rook(Position initPostion, Color color)
 //Returns an std::vector<Position> with all available positions a Rook piece
 //can capture/move
 std::vector<Position>
-Rook::AvailableMoves(Board<8,8> board) const {
+Rook::AvailableMoves(Board board) const {
   static const int kMovableDirections = 4;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {0, -1}, {-1, 0}

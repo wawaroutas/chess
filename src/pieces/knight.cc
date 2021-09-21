@@ -24,7 +24,7 @@ void Knight::Print(std::ostream& os) const noexcept {
 
 //Returns an std::vector<Position> with all available positions a Knight piece
 //can attack/move
-std::vector<Position> Knight::AvailableMoves(Board<8,8> board) const
+std::vector<Position> Knight::AvailableMoves(Board board) const
 {
   static const int kMovableDirections = 8;
   static const Position moves[kMovableDirections] = {
