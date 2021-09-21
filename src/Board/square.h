@@ -22,7 +22,7 @@ class Square {
   void SetColor(const Color);
   bool Occupied();
   bool operator==(const Square& other);
-  friend std::ostream& operator<<(std::ostream&, Square&);
+  friend std::ostream& operator<<(std::ostream&, const Square&);
 };
 
 #endif // CHESS_SRC_BOARD_SQUARE_H

@@ -1,5 +1,6 @@
 #include "knight.h"   // Knight
 
+#include <ostream>    // std::ostream
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
@@ -29,6 +30,10 @@ Knight::AvailableMoves(const std::vector<Piece*>& enemy) const {
 
 int Knight::value() const noexcept {
   return 3;
+}
+
+void Knight::Print(std::ostream& os) const noexcept {
+  os << 'N';
 }
 
 std::vector<Position> Knight::AvailableAttacks(const std::vector<Piece*>& enemy) const

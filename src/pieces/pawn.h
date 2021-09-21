@@ -1,11 +1,12 @@
 #ifndef CHESS_SRC_PIECES_PAWN_H
 #define CHESS_SRC_PIECES_PAWN_H
 
-#include <vector>        // std::vector
+#include <ostream>    // std::ostream
+#include <vector>     // std::vector
 
-#include "color.h"       // Color
+#include "color.h"    // Color
 #include "piece.h"    // Piece
-#include "position.h"    // Position
+#include "position.h" // Position
 
 
 class Pawn : public Piece {
@@ -16,7 +17,9 @@ class Pawn : public Piece {
   std::vector<Position>
   AvailableAttacks(const std::vector<Piece*>& enemy) const override;
   int value() const noexcept override;
-private:
+ protected:
+  void Print(std::ostream&) const noexcept override;
+ private:
   bool firstMove_;
 };
 

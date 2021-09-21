@@ -17,9 +17,16 @@ bool Square::operator==(const Square& other) {
   return other.GetPosition() == position_ && other.GetColor() == color_;
 }
 
-std::ostream& operator<<(std::ostream& os, Square& square) {
-   os << "Square: " << square.position_ << "\nColor: " << square.color_
-    << "\nPiece:" << square.GetPiece();
+std::ostream& operator<<(std::ostream& os, const Square& square) {
+   if (square.piece_ == nullptr) {
+     if (square.color_ == Color::kWhite) {
+       os << static_cast<char>(176); // '▓' 
+     } else {
+       os << static_cast<char>(178); // '░'
+     }
+   } else {
+     os << square.piece_;
+   }
    return os;
 }
 //------Getters-----//

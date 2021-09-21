@@ -2,10 +2,11 @@
 
 #include <algorithm>  // std::find(), std::remove_if()
 #include <limits>     // std::numeric_limits
+#include <ostream>    // std::ostream
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
-#include "piece.h" // Piece
+#include "piece.h"    // Piece
 #include "position.h" // Position
 
 
@@ -33,6 +34,9 @@ int King::value() const noexcept {
   return std::numeric_limits<int>::max();
 }
 
+void King::Print(std::ostream& os) const noexcept {
+  os << 'K';
+}
 
 std::vector<Position> King::AvailableAttacks(const std::vector<Piece*>& enemy) const
 {
