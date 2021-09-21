@@ -20,7 +20,7 @@ class Piece {
   AvailableAttacks(const std::vector<Piece*>& enemy) const = 0;
 
   // template<int Files,int Ranks>
-  virtual std::vector<Position> test(Board<8,8> board) const =0;
+  virtual std::vector<Position> test(Board board) const = 0;
   //-----------Getters&Setters--------
   Color GetColor() const noexcept;
   Position GetPosition() const noexcept;

@@ -7,8 +7,7 @@
 #include "position.h" // Position
 
 
-template<int Files, int Ranks>
-Board<Files, Ranks>::Board() {
+Board::Board() {
   if (Files < 0 || Ranks < 0) {
     throw std::out_of_range("Files and Ranks must be positive integers");
   }
@@ -24,17 +23,14 @@ Board<Files, Ranks>::Board() {
   }
 }
 
-template<int Files, int Ranks>
-void Board<Files, Ranks>::Init() noexcept {
+void Board::Init() noexcept {
   // Fill the board with initial positions of the pieces
 }
-template<int Files, int Ranks>
-void Board<Files, Ranks>::Clear() noexcept {
+void Board::Clear() noexcept {
   // Remove all pieces from the squares
 }
 
-template<int Files, int Ranks>
-Square& Board<Files, Ranks>::square(const std::string& position) {
+Square& Board::square(const std::string& position) {
   if (position.length() != 2) {
     throw std::out_of_range("position length must be 2");
   }
@@ -43,21 +39,19 @@ Square& Board<Files, Ranks>::square(const std::string& position) {
   return square(x, y);
 }
 
-template<int Files, int Ranks>
-Square& Board<Files, Ranks>::square(const Position& position) {
+Square& Board::square(const Position& position) {
   return square(position.x, position.y);
 }
 
-template<int Files, int Ranks>
-Square& Board<Files, Ranks>::square(int x, int y) {
+Square& Board::square(int x, int y) {
   if (x < 0 || x >= Files || y < 0 || y >= Ranks) {
     throw std::out_of_range("x or y coordinate out of range");
   }
   return square_[y][x];
 }
 
-// template<int Files, int Ranks>
-// std::ostream& operator<<(std::ostream& os, const Board<Files, Ranks>& board) {
+//
+// std::ostream& operator<<(std::ostream& os, const Board& board) {
 //   //   a b c d e f g h
 //   // 8 R N B Q K B N R
 //   // 7 P P P P P P P P
@@ -82,8 +76,7 @@ Square& Board<Files, Ranks>::square(int x, int y) {
 //   return os;
 // }
 
-template<int Files, int Ranks>
-void Board<Files, Ranks>::Print(std::ostream& os) const {
+void Board::Print(std::ostream& os) const {
   //   a b c d e f g h
   // 8 R N B Q K B N R
   // 7 P P P P P P P P
@@ -106,6 +99,3 @@ void Board<Files, Ranks>::Print(std::ostream& os) const {
     os << '\n';
   }
 }
-
-
-template class Board<8, 8>; // Basic chess board

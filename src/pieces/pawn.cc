@@ -55,7 +55,7 @@ std::vector<Position> Pawn::AvailableAttacks(const std::vector<Piece*>& enemy) c
     return attacks;
 }
 
-std::vector<Position> Pawn::test(Board<8,8> board) const
+std::vector<Position> Pawn::test(Board board) const
 {
   
 	std::vector<Position> available;
