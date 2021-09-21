@@ -17,6 +17,8 @@ class Piece {
   // True : Square not occupied || Square occupied && Square.Piece.Color != color_
   // False: Square occupied && Square.Piece.Color == color_
   bool canMove(Square& target) const;
+  //
+  virtual bool MovePiece(Position newPosition,Board board);
   //Returns an std::vector<Position> with all available positions a piece
   //can capture/move
   virtual std::vector<Position> AvailableMoves(Board board) const = 0;
@@ -28,6 +30,7 @@ class Piece {
   virtual int value() const noexcept = 0;
   friend std::ostream& operator<<(std::ostream&, const Piece&);
  protected:
+  std::vector<Position> currentMoves; 
   virtual void Print(std::ostream&) const noexcept = 0;
   Position position_;
   const Color color_;

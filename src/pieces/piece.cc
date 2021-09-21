@@ -11,7 +11,8 @@
 #include "square.h"   // Square
 
 Piece::Piece(Position initPostion, Color color, int points)
-    : position_(initPostion), color_(color),points_(points) {}
+    : position_(initPostion), color_(color),points_(points)
+    {}
 
 
 
@@ -33,6 +34,22 @@ bool Piece::canMove(Square& target) const
   if(target.GetPiece()->GetColor() == color_)
     return false;
   return true; //Occupied && different color
+}
+
+bool Piece::MovePiece(Position newPosition,Board board){
+  if(currentMoves.empty())
+    currentMoves = AvailableMoves(board);
+  for(Position pos : currentMoves){
+    if(pos == newPosition){
+      //can move there
+      board.square(newPosition).SetPiece(this);
+      board.square(position_).SetPiece(nullptr);
+      position_ = newPosition;
+      currentMoves = AvailableMoves(board);
+      return true;
+    }
+  }
+  return false;
 }
 
 std::vector<Position> Piece::AvailableCaptures(Board board) const{

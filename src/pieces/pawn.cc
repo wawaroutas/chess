@@ -47,6 +47,15 @@ Pawn::AvailableMoves(Board board) const {
   return available;
 }
 
+bool Pawn::MovePiece(Position newPosition,Board board) {
+  if(Piece::MovePiece(newPosition,board)){
+    firstMove_ = false;
+    return true;
+  }
+  return false;
+}
+
+
 int Pawn::value() const noexcept {
   return 1;
 }
