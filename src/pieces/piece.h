@@ -1,7 +1,7 @@
 #ifndef CHESS_SRC_PIECES_PIECE_H
 #define CHESS_SRC_PIECES_PIECE_H
 
-#include <ostream>    // std::ostream
+#include <iostream>    // std::ostream
 #include <string>     // std::string
 #include <vector>     // std::vector
 
@@ -13,7 +13,7 @@
 class Piece {
  public:
   Piece(Position initPostion, Color color, int points);
-  virtual bool MovePiece(Square newPosition,Board board);
+  virtual bool MovePiece(Square newPosition,Board board) = 0;
   //-----------Getters&Setters--------
   Color GetColor() const noexcept;
   Position GetPosition() const noexcept;

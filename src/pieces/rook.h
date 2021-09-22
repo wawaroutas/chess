@@ -15,6 +15,7 @@ class Rook : public Piece {
   Rook(Position initPostion, Color color);
   std::vector<Square> AvailableMoves(Board& board) const override;
   int value() const noexcept override;
+  bool MovePiece(Square,Board) override;
  protected:
   void Print(std::ostream&) const noexcept override;
 };

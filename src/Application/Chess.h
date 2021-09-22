@@ -10,10 +10,9 @@ class Chess{
 public:
   Chess();
   void Init();
-  void Run();
 private:
   void SwitchTurn();
-  void run();
+  void Run();
   Board board_;
   std::vector<Player> players_;
   Player currentTurn_;

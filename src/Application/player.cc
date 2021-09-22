@@ -6,7 +6,6 @@
 #include <sstream> // std::stringstream
 Player::Player(): name_(""),pieces_({}),points_(0){
   pieces_.reserve(16);
-
 }
 
 Player::Player(std::string name,std::vector<Piece*> pieces)
@@ -26,10 +25,7 @@ void Player::RemovePiece(Piece* piece)
 
 void Player::Init(Board board,Color c)
 {
-  std::cout << "init player\n";
-std::cout <<pieces_.capacity()<< " capacity of player pieces\n";
   SetPieces(board.GetPieces(c));
-  std::cout <<pieces_.size()<< "size of player pieces\n";
   std::cout << "Enter your name\n>";
   std::cin >> name_;
   std::cout << "Welcome " << name_ <<
@@ -46,7 +42,7 @@ void Player::MakeMove(Board board)
     std::cin >> input;
     int pos = input.find("->");
     pos1 = input.substr(0,pos);
-    pos2 = input.substr(pos+1,std::string::npos);
+    pos2 = input.substr(pos+2,std::string::npos);
     Square from = board.square(pos1);
     Square to = board.square(pos2);
     flag = from.GetPiece()->MovePiece(board.square(pos2),board);
@@ -56,6 +52,13 @@ void Player::MakeMove(Board board)
 
 bool Player::operator==(const Player& other){
   return pieces_ == other.pieces_;
+}
+
+Player& Player::operator=(const Player& other){
+  points_ = other.points_;
+  name_ = other.name_;
+  SetPieces(other.GetPieces());
+  return *this;
 }
 //---------Getters and Setters--------/
 std::vector<Piece*> Player::GetPieces() const noexcept{return pieces_;}

@@ -1,6 +1,6 @@
 #include "pawn.h"     // Pawn
 
-#include <ostream>    // std::ostream
+#include <iostream>    // std::ostream
 #include <vector>     // std::vector
 
 #include "color.h"    // Color
@@ -46,10 +46,27 @@ std::vector<Square> Pawn::AvailableMoves(Board& board) const {
 }
 
 bool Pawn::MovePiece(Square newSquare,Board board) {
-  if(Piece::MovePiece(newSquare,board)){
-    firstMove_ = false;
-    return true;
+  std::cout << "Inside of Pawn method\n";
+  if(currentMoves.empty())
+  {
+    std::cout << "PAWNPAWNPAWNPAWN currentMoves was empty\n";
+    currentMoves = AvailableMoves(board);
+    std::cout << "PAWNPAWNPAWNPAWN currentMoves size: "<< currentMoves.size() << "\n";
   }
+  for(Square square : currentMoves){
+    if(square == newSquare){
+      //can move there
+      std::cout << "Initiating PAWNPAWNPAWNPAWNPAWNPAWNmovement\n";
+      board.square(newSquare.GetPosition()).SetPiece(std::shared_ptr<Piece>(this));
+      board.square(position_).SetPiece(nullptr);
+      position_ = newSquare.GetPosition();
+      currentMoves = AvailableMoves(board);
+      firstMove_ = false;
+      return true;
+    }
+  }
+  firstMove_ = true;
+  std::cout << "No move happened PAWNPAWNPAWNPAWNPAWNPAWNPAWNPAWNhere\n";
   return false;
 }
 

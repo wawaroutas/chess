@@ -2,7 +2,7 @@
 
 #include <algorithm>  // std::find()
 #include <memory>     // std::shared_ptr
-#include <ostream>    // std::ostream
+#include <iostream>    // std::ostream
 #include <string>     // std::string
 #include <vector>     // std::vector
 
@@ -28,21 +28,6 @@ bool Piece::canMove(Square& target) const {
   return true; //Occupied && different color
 }
 
-bool Piece::MovePiece(Square newSquare,Board board){
-  if(currentMoves.empty())
-    currentMoves = AvailableMoves(board);
-  for(Square square : currentMoves){
-    if(square == newSquare){
-      //can move there
-      board.square(newSquare.GetPosition()).SetPiece(std::shared_ptr<Piece>(this));
-      board.square(position_).SetPiece(nullptr);
-      position_ = newSquare.GetPosition();
-      currentMoves = AvailableMoves(board);
-      return true;
-    }
-  }
-  return false;
-}
 
 std::vector<Square> Piece::AvailableCaptures(Board board) const{
   std::vector<Square> attacks;

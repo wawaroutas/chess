@@ -11,7 +11,38 @@
 #include "chess.h"
 
 int main() {
-  Chess chess;
+  //Chess chess;
+  Board  board;
+  board.Init();
+  std::string input,pos1,pos2;
+  std::cout << board;
+  Square from = board.square("b1");
+  Square to = board.square("c3");
+  from.GetPiece()->MovePiece(to,board);
+  std::cout << board;
+  // while(true)
+  // {
+  //   std::cin >> input;
+  //   int pos = input.find("->");
+  //   pos1 = input.substr(0,pos);
+  //   pos2 = input.substr(pos+2,std::string::npos);
+  //   Square from = board.square(pos1);
+  //   Square to = board.square(pos2);
+  //   std::cout << "Before move \n";
+  //   if(from.GetPiece()==nullptr)
+  //     std::cout << "Square from piece now null\n";
+  //   if(to.GetPiece()==nullptr)
+  //     std::cout << "Square to piece now null\n";
+  //
+  //   from.GetPiece()->MovePiece(to,board);
+  //
+  //   std::cout << "after move \n";
+  //   if(from.GetPiece()==nullptr)
+  //     std::cout << "Square from piece now null\n";
+  //   if(to.GetPiece()==nullptr)
+  //     std::cout << "Square to piece now null\n";
+  //   std::cout << board;
+  // }
 
   // Position a(0,0), b(7,7);
 	// Board<8,8> e;

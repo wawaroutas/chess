@@ -42,3 +42,27 @@ int Rook::value() const noexcept {
 void Rook::Print(std::ostream& os) const noexcept {
   os << 'R';
 }
+
+
+bool Rook::MovePiece(Square newSquare,Board board){
+  std::cout << "Inside ROOK method\n";
+  if(currentMoves.empty())
+  {
+    std::cout << "currentMoves was empty\n";
+    currentMoves = AvailableMoves(board);
+    std::cout << "currentMoves size: "<< currentMoves.size() << "\n";
+  }
+  for(Square square : currentMoves){
+    if(square == newSquare){
+      //can move there
+      std::cout << "Initiating movement\n";
+      board.square(newSquare.GetPosition()).SetPiece(std::shared_ptr<Piece>(this));
+      board.square(position_).SetPiece(nullptr);
+      position_ = newSquare.GetPosition();
+      currentMoves = AvailableMoves(board);
+      return true;
+    }
+  }
+  std::cout << "No move happened here\n";
+  return false;
+}
