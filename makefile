@@ -1,11 +1,11 @@
 #Variables
 CC = g++
-INCLUDES = -Isrc/components -Isrc/Board -Isrc/pieces -Isrc -Isrc/Application
+INCLUDES = -Isrc/components -Isrc/board -Isrc/pieces -Isrc -Isrc/application
 OUTPUT = -o Chess
-BOARD = ./src/Board/*.cc
+BOARD = ./src/board/*.cc
 PIECES = ./src/pieces/*.cc
 COMPONENTS = ./src/components/*.cc
-APPLICATION = ./src/Application/*.cc
+APPLICATION = ./src/application/*.cc
 MAIN = ./src/main.cc
 STD = -std=c++17
 OPTIMIZATION = -O3
