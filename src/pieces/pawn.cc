@@ -12,11 +12,11 @@
 Pawn::Pawn(Position initPostion,Color color)
     : Piece(initPostion, color, 1),firstMove_(true) {}
 
-//Returns an std::vector<Position> with all available positions a Pawn piece
+//Returns an std::vector<Square> with all available positions a Pawn piece
 //can capture/move
 //TODO: Add en pessant
-std::vector<Position> Pawn::AvailableMoves(Board& board) const {
-	std::vector<Position> available;
+std::vector<Square> Pawn::AvailableMoves(Board& board) const {
+	std::vector<Square> available;
   Position move = {};
   if(firstMove_){
      move = {0,2};
@@ -26,26 +26,27 @@ std::vector<Position> Pawn::AvailableMoves(Board& board) const {
      move = {0,1};
   }
   Position captures[] = {{1,1},{-1,1}};
-  if((position_+move).InBoard())
+  if((position_ + move).InBoard())
   {
-    if(!board.square(position_+move).Occupied()){
-      available.push_back(position_+move);
-    }
+    Square square = board.square(position_+move);
+    if(canMove(square))
+      available.push_back(square);
   }
 
   for(Position capture : captures)
   {
     if((position_+capture).InBoard()){
-      if(board.square(position_+capture).Occupied())
-        if(board.square(position_+capture).GetPiece()->GetColor() != color_)
-          available.push_back(position_+capture);
+      Square square = board.square(position_+capture);
+      if(square.Occupied())
+        if(square.GetPiece()->GetColor() != color_)
+          available.push_back(square);
     }
   }
   return available;
 }
 
-bool Pawn::MovePiece(Position newPosition,Board board) {
-  if(Piece::MovePiece(newPosition,board)){
+bool Pawn::MovePiece(Square newSquare,Board board) {
+  if(Piece::MovePiece(newSquare,board)){
     firstMove_ = false;
     return true;
   }

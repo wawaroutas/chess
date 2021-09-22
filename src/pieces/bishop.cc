@@ -13,20 +13,20 @@
 Bishop::Bishop(Position initPostion, Color color)
     : Piece(initPostion, color, 3) {}
 
-//Returns an std::vector<Position> with all available positions a Bishop piece
+//Returns an std::vector<Square> with all available positions a Bishop piece
 //can attack/move
-std::vector<Position> Bishop::AvailableMoves(Board& board) const {
+std::vector<Square> Bishop::AvailableMoves(Board& board) const {
   static const int kMovableDirections = 4;
   static const Position moves[kMovableDirections] = {
     {1, 1}, {-1, 1}, {1, -1}, {-1, -1}
   };
-	std::vector<Position> available;
+	std::vector<Square> available;
   for (Position move : moves) {
-    while((position_+move).InBoard())
-    {
-      if(canMove(board.square(position_ + move)))
-        available.push_back(position_+move);
-      if(!(board.square(position_ + move).Occupied()))
+    while((position_+move).InBoard()){
+      Square square = board.square(position_+move);
+      if(canMove(square))
+        available.push_back(square);
+      if(!square.Occupied())
         move+=move;
       else
         break; //Square occupied so move to another direction

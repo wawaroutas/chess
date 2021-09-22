@@ -22,19 +22,21 @@ void Knight::Print(std::ostream& os) const noexcept {
 }
 
 
-//Returns an std::vector<Position> with all available positions a Knight piece
+//Returns an std::vector<Square> with all available positions a Knight piece
 //can attack/move
-std::vector<Position> Knight::AvailableMoves(Board& board) const
+std::vector<Square> Knight::AvailableMoves(Board& board) const
 {
   static const int kMovableDirections = 8;
   static const Position moves[kMovableDirections] = {
     {2, 1}, {2, -1}, {-2, 1}, {-2, -1}, {1, 2}, {-1, 2}, {1, -2}, {-1, -2}
   };
-	std::vector<Position> available;
+	std::vector<Square> available;
   for (Position move : moves) {
-    if((position_+move).InBoard()){
-        if(canMove(board.square(position_ + move)))
-          available.push_back(position_+move);
+    if((position_ + move).InBoard())
+    {
+      Square square = board.square(position_+move);
+      if(canMove(square))
+        available.push_back(square);
     }
   }
   return available;

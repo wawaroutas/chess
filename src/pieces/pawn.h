@@ -12,9 +12,9 @@
 class Pawn : public Piece {
  public:
   Pawn(Position initPostion, Color color);
-  std::vector<Position> AvailableMoves(Board& board) const override;
+  std::vector<Square> AvailableMoves(Board& board) const override;
   int value() const noexcept override;
-  bool MovePiece(Position newPosition,Board board) override;
+  bool MovePiece(Square newSquare,Board board) override;
  protected:
   void Print(std::ostream&) const noexcept override;
  private:

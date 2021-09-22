@@ -12,7 +12,7 @@
 class Bishop : public Piece {
  public:
   Bishop(Position initPostion, Color color);
-  std::vector<Position> AvailableMoves(Board& board) const override;
+  std::vector<Square> AvailableMoves(Board& board) const override;
   int value() const noexcept override;
  protected:
   void Print(std::ostream&) const noexcept override;
