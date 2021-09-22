@@ -74,6 +74,7 @@ Square& Board::square(const std::string& position) {
   }
   int y = 7 - (position[0] - '1');
   int x = position[1] - 'a';
+  std::cout << x << "," << y << "\n";
   return square(x, y);
 }
 
@@ -117,6 +118,7 @@ std::ostream& operator<<(std::ostream& os, const Board& board) {
 
 std::vector<Piece*> Board::GetPieces(Color c)
 {
+  std::cout << "board get pieces\n";
   std::vector<Piece*> pieces;
   for (int i = 0; i < kRanks; ++i) {
     for (int j = 0; j < kFiles; ++j) {
@@ -126,5 +128,6 @@ std::vector<Piece*> Board::GetPieces(Color c)
       }
     }
   }
+  std::cout << pieces.size() << " is size of pieces from get pieces\n";
   return pieces;
 }

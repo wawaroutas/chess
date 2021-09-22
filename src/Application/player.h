@@ -4,6 +4,7 @@
 #include "piece.h"
 #include "board.h"
 #include <string>
+#include <vector>
 class Player{
 public:
   Player();
