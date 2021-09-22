@@ -13,20 +13,20 @@
 Queen::Queen(Position initPostion, Color color)
     : Piece(initPostion, color, 9) {}
 
-//Returns an std::vector<Position> with all available positions a Queen piece
+//Returns an std::vector<Square> with all available positions a Queen piece
 //can capture/move
-std::vector<Position> Queen::AvailableMoves(Board& board) const {
+std::vector<Square> Queen::AvailableMoves(Board& board) const {
   static const int kMovableDirections = 8;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {1, 1}, {0, -1}, {-1, 0}, {-1, 1}, {1, -1}, {-1, -1}
   };
-	std::vector<Position> available;
+	std::vector<Square> available;
   for (Position move : moves) {
-    while((position_+move).InBoard())
-    {
-      if(canMove(board.square(position_+move)))
-        available.push_back(position_+move);
-      if(!board.square(position_+move).Occupied())
+    while((position_+move).InBoard()){
+      Square square = board.square(position_+move);
+      if(canMove(square))
+        available.push_back(square);
+      if(!square.Occupied())
         move+=move;
       else
         break; //Square occupied so move to another direction

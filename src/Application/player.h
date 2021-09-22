@@ -2,21 +2,25 @@
 #define CHESS_SRC_PLAYER_H
 
 #include "piece.h"
-
+#include "board.h"
+#include <string>
 class Player{
 public:
   Player();
-  Player(const char* name,std::vector<Piece*> pieces);
+  Player(std::string name,std::vector<Piece*> pieces);
   void RemovePiece(Piece* piece);
   void AddPoints(int points);
+  void Init(Board board,Color c);
+  void MakeMove(Board board);
   //-----Getters and Setters---------//
   std::vector<Piece*> GetPieces() const noexcept;
   int GetPoints() const noexcept;
-  const char* GetName() const noexcept;
-  void SetName(const char* newName);
+  std::string GetName() const noexcept;
+  void SetName(std::string newName);
   void SetPieces(std::vector<Piece*> pieces);
+  bool operator==(const Player& other);
 private:
-  const char* name_;
+  std::string name_;
   std::vector<Piece*> pieces_;
   int points_;
 };

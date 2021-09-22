@@ -22,7 +22,6 @@ Board::Board() {
       }
     }
   }
-  Init();
 }
 
 void Board::Init() noexcept {

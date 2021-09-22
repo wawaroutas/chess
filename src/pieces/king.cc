@@ -13,22 +13,22 @@ King::King(Position initPostion, Color color)
     : Piece(initPostion, color, 1000) {}
 
 
-//Returns an std::vector<Position> with all available positions a King piece
+//Returns an std::vector<Square> with all available positions a King piece
 //can attack/move
 //TODO add check
-std::vector<Position> King::AvailableMoves(Board& board) const {
+std::vector<Square> King::AvailableMoves(Board& board) const {
   static const int kMovableDirections = 8;
   static const Position moves[kMovableDirections] = {
     {1, 0}, {0, 1}, {1, 1}, {0, -1}, {-1, 0}, {-1, 1}, {1, -1}, {-1, -1}
   };
-	std::vector<Position> available;
+	std::vector<Square> available;
   for (Position move : moves) {
     if((position_ + move).InBoard())
     {
-      if(canMove(board.square(position_+move)))
-        available.push_back(position_ + move);
+      Square square = board.square(position_+move);
+      if(canMove(square))
+        available.push_back(square);
     }
-
   }
   return available;
 }

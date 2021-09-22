@@ -28,15 +28,15 @@ bool Piece::canMove(Square& target) const {
   return true; //Occupied && different color
 }
 
-bool Piece::MovePiece(Position newPosition,Board board){
+bool Piece::MovePiece(Square newSquare,Board board){
   if(currentMoves.empty())
     currentMoves = AvailableMoves(board);
-  for(Position pos : currentMoves){
-    if(pos == newPosition){
+  for(Square square : currentMoves){
+    if(square == newSquare){
       //can move there
-      board.square(newPosition).SetPiece(std::shared_ptr<Piece>(this));
+      board.square(newSquare.GetPosition()).SetPiece(std::shared_ptr<Piece>(this));
       board.square(position_).SetPiece(nullptr);
-      position_ = newPosition;
+      position_ = newSquare.GetPosition();
       currentMoves = AvailableMoves(board);
       return true;
     }
@@ -44,14 +44,13 @@ bool Piece::MovePiece(Position newPosition,Board board){
   return false;
 }
 
-std::vector<Position> Piece::AvailableCaptures(Board board) const{
-  std::vector<Position> attacks;
-  for(Position pos : AvailableMoves(board))
+std::vector<Square> Piece::AvailableCaptures(Board board) const{
+  std::vector<Square> attacks;
+  for(Square square : AvailableMoves(board))
   {
-    Square square = board.square(pos);
     if(square.Occupied())
       if(square.GetPiece()->GetColor()!=color_)
-        attacks.push_back(pos);
+        attacks.push_back(square);
   }
   return attacks;
 }
@@ -61,4 +60,4 @@ std::vector<Position> Piece::AvailableCaptures(Board board) const{
 
 Position Piece::GetPosition() const noexcept {return position_;}
 Color Piece::GetColor() const noexcept {return color_;}
-std::vector<Position> Piece::GetCurrentMoves() const noexcept{return currentMoves;}
+std::vector<Square> Piece::GetCurrentMoves() const noexcept{return currentMoves;}
