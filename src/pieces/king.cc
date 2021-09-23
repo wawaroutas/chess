@@ -42,7 +42,7 @@ void King::Print(std::ostream& os) const noexcept {
 }
 
 
-bool King::MovePiece(Square newSquare,Board board){
+bool King::MovePiece(Square newSquare,Board& board){
   std::cout << "Inside KING method\n";
   if(currentMoves.empty())
   {

@@ -44,7 +44,7 @@ void Rook::Print(std::ostream& os) const noexcept {
 }
 
 
-bool Rook::MovePiece(Square newSquare,Board board){
+bool Rook::MovePiece(Square newSquare,Board& board){
   std::cout << "Inside ROOK method\n";
   if(currentMoves.empty())
   {

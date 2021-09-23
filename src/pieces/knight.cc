@@ -44,7 +44,7 @@ std::vector<Square> Knight::AvailableMoves(Board& board) const
 }
 
 
-bool Knight::MovePiece(Square newSquare,Board board) {
+bool Knight::MovePiece(Square newSquare,Board& board) {
   std::cout << "Inside KNIGHT method\n";
   if(currentMoves.empty())
   {

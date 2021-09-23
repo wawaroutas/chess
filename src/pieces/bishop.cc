@@ -46,7 +46,7 @@ void Bishop::Print(std::ostream& os) const noexcept {
 
 
 
-bool Bishop::MovePiece(Square newSquare,Board board){
+bool Bishop::MovePiece(Square newSquare,Board& board){
   std::cout << "Inside BISHOP method\n";
   if(currentMoves.empty())
   {

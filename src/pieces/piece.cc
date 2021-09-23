@@ -29,7 +29,7 @@ bool Piece::canMove(Square& target) const {
 }
 
 
-std::vector<Square> Piece::AvailableCaptures(Board board) const{
+std::vector<Square> Piece::AvailableCaptures(Board& board) const{
   std::vector<Square> attacks;
   for(Square square : AvailableMoves(board))
   {

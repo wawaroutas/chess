@@ -13,7 +13,7 @@
 class Piece {
  public:
   Piece(Position initPostion, Color color, int points);
-  virtual bool MovePiece(Square newPosition,Board board) = 0;
+  virtual bool MovePiece(Square newPosition,Board& board) = 0;
   //-----------Getters&Setters--------
   Color GetColor() const noexcept;
   Position GetPosition() const noexcept;
@@ -34,7 +34,7 @@ class Piece {
   //can capture/move
   virtual std::vector<Square> AvailableMoves(Board& board) const = 0;
   //Returns an std::vector<Square> with only positions a Piece can capture
-  std::vector<Square> AvailableCaptures(Board) const;
+  std::vector<Square> AvailableCaptures(Board&) const;
 };
 
 #endif // CHESS_SRC_PIECES_Piece_H

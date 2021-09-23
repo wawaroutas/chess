@@ -45,7 +45,7 @@ std::vector<Square> Pawn::AvailableMoves(Board& board) const {
   return available;
 }
 
-bool Pawn::MovePiece(Square newSquare,Board board) {
+bool Pawn::MovePiece(Square newSquare,Board& board) {
   std::cout << "Inside of Pawn method\n";
   if(currentMoves.empty())
   {

@@ -44,7 +44,7 @@ void Queen::Print(std::ostream& os) const noexcept {
 }
 
 
-bool Queen::MovePiece(Square newSquare,Board board){
+bool Queen::MovePiece(Square newSquare,Board& board){
   std::cout << "Inside QUEEN method\n";
   if(currentMoves.empty())
   {
