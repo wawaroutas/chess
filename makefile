@@ -1,6 +1,6 @@
 #Variables
 CC = g++
-INCLUDES = -Isrc/components -Isrc/board -Isrc/pieces -Isrc -Isrc/application
+INCLUDES =-Icomponents -Iboard -Ipieces -Iapplication
 OUTPUT = -o Chess
 BOARD = ./src/board/*.cc
 PIECES = ./src/pieces/*.cc
@@ -37,7 +37,7 @@ main.o: main.cc board.h chess.h player.h chesspieces.h
 
 position.o: position.cc position.h
 	$(CC) $(INCLUDES) -c position.cc
-	
+
 piece.o: piece.cc piece.h color.h position.h
 	$(CC) $(INCLUDES) -c piece.cc
 
