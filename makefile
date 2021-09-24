@@ -1,6 +1,6 @@
 #Variables
 CC = g++
-INCLUDES =-Icomponents -Iboard -Ipieces -Iapplication
+INCLUDES =-Isrc/components -Isrc/board -Isrc/pieces -Isrc/application
 OUTPUT = -o Chess
 BOARD = ./src/board/*.cc
 PIECES = ./src/pieces/*.cc
@@ -31,39 +31,41 @@ pieces:
 Chess: main.o board.o player.o chess.o
 	$(CC) main.o board.o player.o chess.o $(OUTPUT)
 
+main.o: src/main.cc
+	$(CC) $(INCLUDES) -c ./src/main.cc
 
-main.o: main.cc board.h chess.h player.h chesspieces.h
-	$(CC) $(INCLUDES) -c main.cc
+position.o: ./src/components/position.cc ./src/components/position.h
+	$(CC) $(INCLUDES) -c ./src/components/position.cc
 
-position.o: position.cc position.h
-	$(CC) $(INCLUDES) -c position.cc
+piece.o: ./src/pieces/piece.cc ./src/pieces/piece.h ./src/components/color.h ./src/components/position.h
+	$(CC) $(INCLUDES) -c ./src/pieces/piece.cc
 
-piece.o: piece.cc piece.h color.h position.h
-	$(CC) $(INCLUDES) -c piece.cc
+rook.o: ./src/pieces/rook.cc ./src/pieces/rook.h ./src/pieces/piece.h
+	$(CC) $(INCLUDES) -c ./src/pieces/rook.cc
 
-rook.o: rook.cc rook.h piece.h
-	$(CC) $(INCLUDES) -c rook.cc
+queen.o: ./src/pieces/queen.cc ./src/pieces/queen.h ./src/pieces/piece.h
+	$(CC) $(INCLUDES) -c ./src/pieces/queen.cc
 
-queen.o: queen.cc queen.h piece.h
-	$(CC) $(INCLUDES) -c queen.cc
+pawn.o: ./src/pieces/pawn.cc ./src/pieces/pawn.h ./src/pieces/piece.h
+	$(CC) $(INCLUDES) -c ./src/pieces/pawn.cc
 
-pawn.o: pawn.cc pawn.h piece.h
-	$(CC) $(INCLUDES) -c pawn.cc
+knight.o: ./src/pieces/knight.cc ./src/pieces/knight.h ./src/pieces/piece.h
+	$(CC) $(INCLUDES) -c ./src/pieces/knight.cc
 
-knight.o: knight.cc knight.h piece.h
-	$(CC) $(INCLUDES) -c knight.cc
+king.o: ./src/pieces/king.cc ./src/pieces/king.h ./src/pieces/piece.h
+	$(CC) $(INCLUDES) -c ./src/pieces/king.cc
 
-king.o: king.cc king.h piece.h
-	$(CC) $(INCLUDES) -c king.cc
+bishop.o: ./src/pieces/bishop.cc ./src/pieces/bishop.h ./src/pieces/piece.h
+	$(CC) $(INCLUDES) -c ./src/pieces/bishop.cc
 
-bishop.o: bishop.cc bishop.h piece.h
-	$(CC) $(INCLUDES) -c bishop.cc
-square.o: square.cc square.h color.h position.h
-	$(CC) $(INCLUDES) -c square.cc
-board.o: board.cc board.h square.h position.h
-	$(CC) $(INCLUDES) -c board.cc
-player.o: player.cpp player.h board.h piece.h
-	$(CC) $(INCLUDES) -c player.cc
+square.o: ./src/board/square.cc ./src/board/square.h ./src/components/color.h ./src/components/position.h
+	$(CC) $(INCLUDES) -c ./src/board/square.cc
 
-chess.o: chess.cc chess.h player.h board.h piece.h
-	$(CC) $(INCLUDES) -c chess.cc
+board.o: ./src/board/board.cc ./src/board/board.h ./src/board/square.h ./src/components/position.h
+	$(CC) $(INCLUDES) -c ./src/board/board.cc
+
+player.o: ./src/application/player.cc ./src/application/player.h ./src/board/board.h ./src/pieces/piece.h
+	$(CC) $(INCLUDES) -c ./src/application/player.cc
+
+chess.o: ./src/application/chess.cc ./src/application/chess.h ./src/application/player.h ./src/board/board.h ./src/pieces/piece.h
+	$(CC) $(INCLUDES) -c ./src/application/chess.cc
