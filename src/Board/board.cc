@@ -72,8 +72,8 @@ Square& Board::square(const std::string& position) {
   if (position.length() != 2) {
     throw std::out_of_range("position length must be 2");
   }
-  int y = 7 - (position[0] - '1');
-  int x = position[1] - 'a';
+  int x = std::toupper(position[0]) - 'A';
+  int y = position[1] - '0' - 1;
   return square(x, y);
 }
 
@@ -83,6 +83,7 @@ Square& Board::square(const Position& position) {
 
 Square& Board::square(int x, int y) {
   if (x < 0 || x >= kFiles || y < 0 || y >= kRanks) {
+    std::cout << x << "," << y << "\n Cause exception\n";
     throw std::out_of_range("x or y coordinate out of range");
   }
   return square_[y][x];

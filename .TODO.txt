@@ -3,7 +3,7 @@
 2. Add King threat logic before moving pieces
 3. Clean up code in finished files (Pieces,Color etc) :
 consistent naming, comments, dependencies
-
+4. Change makefile to compile only changed files and dependencies
       CONSIDERATION_LIST
 1. May need to write better include statements which take into account threat
    relative path of the file in the project.

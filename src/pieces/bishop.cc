@@ -22,12 +22,13 @@ std::vector<Square> Bishop::AvailableMoves(Board& board) const {
   };
 	std::vector<Square> available;
   for (Position move : moves) {
-    while((position_+move).InBoard()){
-      Square square = board.square(position_+move);
+    Position newPosition = position_ + move;
+    while((newPosition).InBoard()){
+      Square square = board.square(newPosition);
       if(canMove(square))
         available.push_back(square);
       if(!square.Occupied())
-        move+=move;
+        newPosition+=move;
       else
         break; //Square occupied so move to another direction
     }
@@ -41,4 +42,32 @@ int Bishop::value() const noexcept {
 
 void Bishop::Print(std::ostream& os) const noexcept {
   os << 'B';
+}
+
+
+
+bool Bishop::MovePiece(Square newSquare,Board& board){
+  std::cout << "Inside BISHOP method\n";
+  if(currentMoves.empty())
+  {
+    std::cout << "currentMoves was empty\n";
+    currentMoves = AvailableMoves(board);
+    std::cout << "currentMoves size: "<< currentMoves.size() << "\n";
+    for(Square sq : currentMoves)
+      std::cout << sq << '\n';
+  }
+  for(Square square : currentMoves){
+    if(square == newSquare){
+      //can move there
+      std::cout << "Initiating movement\n";
+      board.square(newSquare.GetPosition()).SetPiece(std::shared_ptr<Piece>(this));
+      board.square(position_).SetPiece(nullptr);
+      position_ = newSquare.GetPosition();
+      currentMoves.clear();
+      currentMoves = AvailableMoves(board);
+      return true;
+    }
+  }
+  std::cout << "No move happened here\n";
+  return false;
 }

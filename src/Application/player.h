@@ -4,6 +4,7 @@
 #include "piece.h"
 #include "board.h"
 #include <string>
+#include <vector>
 class Player{
 public:
   Player();
@@ -19,6 +20,7 @@ public:
   void SetName(std::string newName);
   void SetPieces(std::vector<Piece*> pieces);
   bool operator==(const Player& other);
+  Player& operator=(const Player& other);
 private:
   std::string name_;
   std::vector<Piece*> pieces_;

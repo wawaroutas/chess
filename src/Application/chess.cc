@@ -16,8 +16,9 @@ void Chess::Run()
   bool gamerunning=true;
   while(gamerunning)
   {
-        currentTurn_.MakeMove(board_);
-        SwitchTurn();
+    std::cout << board_;
+    currentTurn_.MakeMove(board_);
+    SwitchTurn();
   }
 }
 
@@ -30,17 +31,9 @@ void Chess::SwitchTurn()
 void Chess::Init()
 {
   board_.Init();
-  std::srand(static_cast<unsigned int>(std::time(nullptr)));
-  if(std::rand()%2)
-  {
-    players_[0].Init(board_,Color::kBlack);
-    players_[1].Init(board_,Color::kWhite);
-    currentTurn_ = players_[1];
-  }
-  else
-  {
-    players_[1].Init(board_,Color::kBlack);
-    players_[0].Init(board_,Color::kWhite);
-    currentTurn_ = players_[0];
-  }
+  players_.push_back(Player());
+  players_.push_back(Player());
+  players_[0].Init(board_,Color::kBlack);
+  players_[1].Init(board_,Color::kWhite);
+  currentTurn_ = players_[1];
 }

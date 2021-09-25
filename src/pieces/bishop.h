@@ -14,6 +14,7 @@ class Bishop : public Piece {
   Bishop(Position initPostion, Color color);
   std::vector<Square> AvailableMoves(Board& board) const override;
   int value() const noexcept override;
+  bool MovePiece(Square newSquare,Board& board) override;
  protected:
   void Print(std::ostream&) const noexcept override;
 };
