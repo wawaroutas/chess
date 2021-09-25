@@ -1,3 +1,6 @@
+#Use make Chess and make clean to clean up. Make all stays for debug
+#After Make clean use make Chessbinaries 
+
 #Variables
 CC = g++
 INCLUDES =-Isrc/components -Isrc/board -Isrc/pieces -Isrc/application
@@ -13,22 +16,19 @@ WARNINGS = -Wall -Wextra -Wshadow -Wold-style-cast -Wcast-align \
 -Wunused -Woverloaded-virtual -pedantic -Wconversion \
 -Wsign-conversion -Wmisleading-indentation
 
-#Targets
-#all compile and link the whole project
 
 all:
 	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(PIECES) $(BOARD)\
 	 $(APPLICATION) $(MAIN) $(STD)
 
+Chess: ./obj/main.o ./obj/board.o ./obj/player.o ./obj/chess.o ./obj/square.o ./obj/piece.o ./obj/position.o ./obj/pawn.o \
+	./obj/rook.o ./obj/king.o ./obj/queen.o ./obj/bishop.o ./obj/knight.o
+	$(CC) ./obj/main.o ./obj/board.o ./obj/player.o ./obj/chess.o ./obj/square.o ./obj/piece.o ./obj/position.o ./obj/pawn.o \
+	./obj/rook.o ./obj/king.o ./obj/queen.o ./obj/bishop.o ./obj/knight.o $(OUTPUT)
 
-
-
-
-#------------------------#
-Chess: main.o board.o player.o chess.o square.o piece.o position.o pawn.o \
-	rook.o king.o queen.o bishop.o knight.o
-	$(CC) main.o board.o player.o chess.o square.o piece.o position.o pawn.o \
-	rook.o king.o queen.o bishop.o knight.o $(OUTPUT) ; mv *.o obj
+Chessbinaries: main.o  board.o  player.o  chess.o  square.o  piece.o \
+	position.o pawn.o rook.o king.o queen.o  bishop.o  knight.o
+	$(CC) $^ ; mv *.o obj
 
 main.o: src/main.cc
 	$(CC) $(INCLUDES) -c ./src/main.cc
