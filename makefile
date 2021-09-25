@@ -9,27 +9,26 @@ APPLICATION = ./src/application/*.cc
 MAIN = ./src/main.cc
 STD = -std=c++17
 OPTIMIZATION = -O3
-WARNINGS = -Wall -Wextra -Wshadow -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -pedantic -Wconversion -Wsign-conversion -Wmisleading-indentation
+WARNINGS = -Wall -Wextra -Wshadow -Wold-style-cast -Wcast-align \
+-Wunused -Woverloaded-virtual -pedantic -Wconversion \
+-Wsign-conversion -Wmisleading-indentation
 
 #Targets
 #all compile and link the whole project
-#board compile and link board and main
-#pieces compile and link pieces
-#alex make all but this weird guy added 15 flags
+
 all:
-	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(PIECES) $(BOARD) $(APPLICATION) $(MAIN) $(STD)
-alex:
-	$(CC) $(STD) $(WARNINGS) $(OPTIMIZATION) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(PIECES) $(BOARD) $(APPLICATION) $(MAIN)
-board:
-	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(BOARD) $(APPLICATION) $(MAIN) $(STD)
-pieces:
-	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(PIECES) $(APPLICATION) $(MAIN) $(STD)
+	$(CC) $(INCLUDES) $(OUTPUT) $(COMPONENTS) $(PIECES) $(BOARD)\
+	 $(APPLICATION) $(MAIN) $(STD)
+
+
 
 
 
 #------------------------#
-Chess: main.o board.o player.o chess.o
-	$(CC) main.o board.o player.o chess.o $(OUTPUT)
+Chess: main.o board.o player.o chess.o square.o piece.o position.o pawn.o \
+	rook.o king.o queen.o bishop.o knight.o
+	$(CC) main.o board.o player.o chess.o square.o piece.o position.o pawn.o \
+	rook.o king.o queen.o bishop.o knight.o $(OUTPUT) ; mv *.o obj
 
 main.o: src/main.cc
 	$(CC) $(INCLUDES) -c ./src/main.cc
@@ -37,7 +36,8 @@ main.o: src/main.cc
 position.o: ./src/components/position.cc ./src/components/position.h
 	$(CC) $(INCLUDES) -c ./src/components/position.cc
 
-piece.o: ./src/pieces/piece.cc ./src/pieces/piece.h ./src/components/color.h ./src/components/position.h
+piece.o: ./src/pieces/piece.cc ./src/pieces/piece.h ./src/components/color.h \
+	./src/components/position.h
 	$(CC) $(INCLUDES) -c ./src/pieces/piece.cc
 
 rook.o: ./src/pieces/rook.cc ./src/pieces/rook.h ./src/pieces/piece.h
@@ -58,14 +58,20 @@ king.o: ./src/pieces/king.cc ./src/pieces/king.h ./src/pieces/piece.h
 bishop.o: ./src/pieces/bishop.cc ./src/pieces/bishop.h ./src/pieces/piece.h
 	$(CC) $(INCLUDES) -c ./src/pieces/bishop.cc
 
-square.o: ./src/board/square.cc ./src/board/square.h ./src/components/color.h ./src/components/position.h
+square.o: ./src/board/square.cc ./src/board/square.h ./src/components/color.h \
+	./src/components/position.h
 	$(CC) $(INCLUDES) -c ./src/board/square.cc
 
-board.o: ./src/board/board.cc ./src/board/board.h ./src/board/square.h ./src/components/position.h
+board.o: ./src/board/board.cc ./src/board/board.h ./src/board/square.h \
+	./src/components/position.h
 	$(CC) $(INCLUDES) -c ./src/board/board.cc
 
-player.o: ./src/application/player.cc ./src/application/player.h ./src/board/board.h ./src/pieces/piece.h
+player.o: ./src/application/player.cc ./src/application/player.h \
+	./src/board/board.h ./src/pieces/piece.h
 	$(CC) $(INCLUDES) -c ./src/application/player.cc
 
-chess.o: ./src/application/chess.cc ./src/application/chess.h ./src/application/player.h ./src/board/board.h ./src/pieces/piece.h
+chess.o: ./src/application/chess.cc ./src/application/chess.h \
+	./src/application/player.h ./src/board/board.h ./src/pieces/piece.h
 	$(CC) $(INCLUDES) -c ./src/application/chess.cc
+clean:
+	rm ./obj/*.o
