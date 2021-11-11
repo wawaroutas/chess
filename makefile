@@ -37,7 +37,7 @@ position.o: ./src/components/position.cc ./src/components/position.h
 	$(CC) $(INCLUDES) -c ./src/components/position.cc
 
 piece.o: ./src/pieces/piece.cc ./src/pieces/piece.h ./src/components/color.h \
-	./src/components/position.h
+	./src/components/position.h ./src/Board/board.h
 	$(CC) $(INCLUDES) -c ./src/pieces/piece.cc
 
 rook.o: ./src/pieces/rook.cc ./src/pieces/rook.h ./src/pieces/piece.h
