@@ -5,6 +5,7 @@
 
 # Compiled Object files
 *.obj
+*.o
 
 # Exececutables
 *.exe
